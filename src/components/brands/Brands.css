@@ -1,0 +1,17 @@
+.card-wrapper {
+    background-color: #fff;
+    box-shadow: 0 0 10px #0000001a;
+    padding: 15px;
+}
+
+.brand_link {
+    cursor: pointer;
+}
+
+.brand-item {
+    cursor: pointer;
+}
+
+.marquee {
+    justify-content: space-around;
+}

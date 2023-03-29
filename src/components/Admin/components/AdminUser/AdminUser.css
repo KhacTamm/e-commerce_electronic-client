@@ -1,0 +1,61 @@
+.admin-user span {
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.admin-user-list {
+    background: white;
+    margin: 0 0.5rem 0 1rem;
+    color: #6b6b6b;
+    padding: 1rem;
+
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+table {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+}
+
+.admin-user-list table th {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    background: var(--color-primary-background);
+    padding: 0.5rem 0;
+    min-width: 30px;
+}
+
+.admin-user-list table td {
+    padding: 0.5rem 0;
+    font-size: 16px;
+}
+
+.admin-user-list table td:first-child {
+    padding: 0.5rem 6px;
+}
+
+.admin-user-list tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.admin-user-list tr .delete-user {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+.admin-user-list tr .delete-user span {
+    border-radius: 50%;
+}
+.admin-user-list tr .delete-user:hover {
+    background: rgb(223, 28, 28);
+    transition: 0.3s;
+}
+.admin-user-list tr .delete-user:hover span {
+    color: white;
+}

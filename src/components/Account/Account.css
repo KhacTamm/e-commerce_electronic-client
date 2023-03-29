@@ -1,0 +1,61 @@
+.account_card {
+    display: flex;
+    flex-direction: column;
+
+    background: white;
+    margin: 24px;
+    padding: 1rem;
+    box-shadow: 0 0 12px var(--color-box-shadow);
+}
+
+.account_title {
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid var(--color-box-shadow);
+}
+
+.account_title span {
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+
+.account_items {
+    padding: 24px 0;
+    margin: auto;
+    align-self: center;
+}
+
+.account_item {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.account_lable {
+    width: 30%;
+    font-size: 1.6rem;
+    color: var(--color-text-light);
+}
+
+.account_items input,
+select {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    line-height: 3rem;
+
+    width: 600px;
+}
+
+.btn_account {
+    padding: 12px 24px;
+    border: none;
+    outline: none;
+    float: right;
+    border-radius: 6px;
+    background-color: var(--admin-create);
+}
+
+.btn_account span {
+    color: #fff;
+    font-weight: 500;
+}

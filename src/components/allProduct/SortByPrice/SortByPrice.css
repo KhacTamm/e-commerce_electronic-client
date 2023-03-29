@@ -1,0 +1,41 @@
+.sort-price {
+    position: relative;
+    padding: 6px 8px;
+    background-color: #fff;
+
+    cursor: pointer;
+    border: 1px solid #eee;
+    min-width: 12.5rem;
+}
+
+.sort-price-title {
+    display: flex;
+    align-items: center;
+}
+
+.sort-price-label {
+    width: 100%;
+}
+
+.sort-price-icon {
+    font-size: 1.4rem;
+}
+
+.sort-price-list {
+    position: absolute;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
+
+    width: 100%;
+    background: white;
+    padding: 0.5rem;
+
+    z-index: 11;
+}
+.sort-price-list-item {
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+}
+.sort-price-list-item:hover span {
+    color: #d70018;
+    transition: 0.3s;
+}
