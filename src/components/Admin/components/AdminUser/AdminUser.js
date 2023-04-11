@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,11 +21,11 @@ function AdminUser(props) {
                 <div className="dashboard-top-search">
                     <p className="admin-TypeProduct_header_title">Quản lý khách hàng</p>
                 </div>
-                <div className="dashboard-top-content">
+                {/* <div className="dashboard-top-content">
                     <li className="dashboard-top-content-avatar">
                         <Link to="/">Quay lại trang chủ</Link>
                     </li>
-                </div>
+                </div> */}
             </div>
             <div className="admin-user">
                 {/* <span>Khách hàng</span> */}

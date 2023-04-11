@@ -1,7 +1,7 @@
 // import IPhone from '../components/HotSale/components/Iphone'
 // import Samsung from '../components/HotSale/components/Samsung'
 // import Xiaomi from '../components/HotSale/components/Xiaomi'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Carousel from '../components/Slider/Carousel'
 import AppChat from '../components/AppChat/AppChat'
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop'
@@ -45,20 +45,21 @@ function HomePage(props) {
                     title="Sản phẩm mới nhất"
                 />
             ) : (
-                <span>Không có sản phẩm</span>
+               ''
             )}
 
             <Brands />
 
             {product && product.length > 0 ? (
-                <ListProduct HotSaleProducts={handlePercentDiscount(product)} discount={40} title="Giảm giá sốc" />
+                <ListProduct HotSaleProducts={handlePercentDiscount(product)} discount={20} title="Giảm giá sốc" />
             ) : (
-                <span>Không có sản phẩm</span>
+                ''
             )}
 
-            {/* <ScrollToTop></ScrollToTop> */}
 
             <Blog></Blog>
+
+            <ScrollToTop></ScrollToTop>
 
             {userInfo && userInfo.isAdmin === false ? <AppChat /> : ''}
         </div>

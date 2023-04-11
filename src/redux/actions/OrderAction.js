@@ -119,12 +119,26 @@ export const GetAllOrderPaid = () => async (dispatch, getState) => {
     } catch (error) {}
 }
 
+export const GetAllOrderCancel = () => async (dispatch, getState) => {
+    try {
+        const {
+            userSignin: { userInfo },
+        } = getState()
+        const { data } = await axios.get(`http://localhost:4000/order/orderCancel`, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        })
+        dispatch({ type: 'GET_ALL_ORDER_CANCEL', payload: data })
+    } catch (error) {}
+}
+
 export const deleteOrder = (orderId) => async (dispatch, getState) => {
     try {
         const {
             userSignin: { userInfo },
         } = getState()
-        const { data } = await axios.delete(`http://localhost:4000/order/delete/${orderId}`, {
+        const { data } = await axios.put(`http://localhost:4000/order/delete/${orderId}`, {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`,
             },

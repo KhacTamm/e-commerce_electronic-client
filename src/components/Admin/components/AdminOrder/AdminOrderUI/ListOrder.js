@@ -4,6 +4,7 @@ import Order from './Order';
 
 function ListOrder(props) {
     const {orders} = props
+    // console.log(orders)
     return (
        <div className="all-order">
            {

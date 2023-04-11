@@ -1,10 +1,11 @@
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { formatPrice } from '../../untils/index'
 
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    AddToCart,
+    IncreaseQtyProduct,
     DeleteToCart,
     DeleteQtyProduct,
     getAllCart,
@@ -14,30 +15,33 @@ import {
 import { BsTrash } from 'react-icons/bs'
 import { useState } from 'react'
 
-Product.propTypes = {}
+// Product.propTypes = {}
 
 function Product(props) {
-    const { product } = props
+    const { cartItem } = props
     const dispatch = useDispatch()
-    const [qty, setQty] = useState(product.qty)
+    const [qty, setQty] = useState()
 
-    function handleDeleteProduct(product) {
-        dispatch(DeleteToCart(product))
+    useEffect(() => {
+        setQty(cartItem.qty)
+    },[cartItem.qty])
+
+    function handleDeleteProduct(cartItem) {
+        dispatch(DeleteToCart(cartItem))
     }
 
     function handleNoDeleteProduct(e) {
         e.preventDefault()
     }
 
-    function handleIncreaseProduct(product) {
-        const action = AddToCart(product)
+    function handleIncreaseProduct(cartItem) {
+        const action = IncreaseQtyProduct(cartItem)
         setQty(qty + 1)
         dispatch(action)
     }
 
-    function handleDecreaseProduct(product) {
-        // console.log(product)
-        dispatch(DecreaseQtyProduct(product._id))
+    function handleDecreaseProduct(cartItem) {
+        dispatch(DecreaseQtyProduct(cartItem._id))
         setQty(qty - 1)
     }
 
@@ -46,27 +50,27 @@ function Product(props) {
             <div className="spcl1">
                 <div className="inf4_product">
                     <div className="imgsp">
-                        <img src={product.image}></img>
+                        <img src={cartItem.image}></img>
                     </div>
                     <div className="spbcl_2">
-                        <Link to={`/detail/${product._id}`}>
-                            <p className="product_name">{product.name}</p>
+                        <Link to={`/detail/${cartItem._id}`}>
+                            <p className="product_name">{cartItem.name}</p>
                         </Link>
-                        <i className="trash" onClick={() => handleDeleteProduct(product)}>
+                        <i className="trash" onClick={() => handleDeleteProduct(cartItem)}>
                             <BsTrash />
                         </i>
                     </div>
                 </div>
                 <div className="dg body_cl1_item">
-                    <p className="giakm">{formatPrice(product.salePrice)} ₫</p>
-                    <p className="giagoc">{formatPrice(product.price)} ₫</p>
+                    <p className="giakm">{formatPrice(cartItem.salePrice)} ₫</p>
+                    <p className="giagoc">{formatPrice(cartItem.price)} ₫</p>
                 </div>
                 <ul className="button-event sl">
-                    <li onClick={qty > 1 ? () => handleDecreaseProduct(product) : handleNoDeleteProduct}>-</li>
+                    <li onClick={qty > 1 ? () => handleDecreaseProduct(cartItem) : handleNoDeleteProduct}>-</li>
                     <li>{qty}</li>
-                    <li onClick={() => handleIncreaseProduct(product)}>+</li>
+                    <li onClick={qty < cartItem.amount ? () => handleIncreaseProduct(cartItem): handleNoDeleteProduct}>+</li>
                 </ul>
-                <div className="tt body_cl1_item">{formatPrice(product.salePrice * product.qty)} ₫</div>
+                <div className="tt body_cl1_item">{formatPrice(cartItem.salePrice * qty)} ₫</div>
             </div>
         </div>
     )

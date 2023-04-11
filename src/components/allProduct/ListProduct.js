@@ -1,3 +1,4 @@
+import React from 'react'
 import Product from './Product'
 
 function ListProduct(props) {
@@ -15,12 +16,18 @@ function ListProduct(props) {
             {HotSaleProducts.map((product, index) =>
                 discount ? (
                     product.percentDiscount >= discount ? (
-                        <Product product={product} key={index} />
+                        product.amount > 0 ? (
+                            <Product product={product} key={index} />
+                        ) : (
+                            ''
+                        )
                     ) : (
                         ''
                     )
-                ) : (
+                ) : product.amount > 0 ? (
                     <Product product={product} key={index} />
+                ) : (
+                    ''
                 ),
             )}
         </div>

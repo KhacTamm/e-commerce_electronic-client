@@ -5,7 +5,7 @@
 
     cursor: pointer;
     border: 1px solid #eee;
-    min-width: 12.5rem;
+    width: 180px;
 }
 
 .sort-price-title {
@@ -23,17 +23,21 @@
 
 .sort-price-list {
     position: absolute;
-    box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 
-    width: 100%;
+    width: 180px;
+    left: -10px;
+    top: 4px;
     background: white;
     padding: 0.5rem;
 
-    z-index: 11;
+    z-index: 999;
 }
 .sort-price-list-item {
+    padding: 0.3rem 1rem;
+    color: #333;
+    font-size: 1.6rem;
     cursor: pointer;
-    padding: 0.3rem 0.5rem;
 }
 .sort-price-list-item:hover span {
     color: #d70018;

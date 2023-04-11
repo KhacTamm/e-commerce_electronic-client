@@ -74,6 +74,7 @@ const reducer = combineReducers({
 
     allOrder: getAllOrderReducer,
     address: addressReducer,
+    
     orderByUser: getOrderByUserReducer,
     orderInfo: OrderInfoReducer,
     payOrder: orderPayReducer,

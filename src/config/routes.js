@@ -12,9 +12,15 @@ const routes = {
     createType: '/admin/typeList/create',
     category: '/admin/typeList',
     createBrand: '/admin/brand/create',
-    brand: '/admin/brandlist',
+    brand: '/admin/brand',
+
     order: '/admin/order',
-    orderAll: '/admin/order/all',
+    // orderAll: '/admin/order/all',
+    orderPedding: '/admin/order/pendding',
+    orderShipping: '/admin/order/shipping',
+    orderPaid: '/admin/order/paid',
+    orderCancel: '/admin/order/cancel',
+
     chat: '/admin/chat',
     admin: '/admin/',
 
@@ -31,7 +37,7 @@ const routes = {
     productDetailCustomer: '/detail/:id',
     cart: '/cart',
     orderCustomer: '/order',
-    MyOrder: '/MyOrder',
+    MyOrder: '/myOrder',
     MyOrderPendding: '/myOrder/pendding',
     MyOrderShipping: '/myOrder/shipping',
     MyOrderPaid: '/myOrder/paid',

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import config from '../../../../../config'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,17 +12,19 @@ export default function ReviewProduct() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const editorRef = useRef(null)
+    const redict = useNavigate()
 
     const detailProduct = useSelector((state) => state.getProductById.product)
 
-    const log = () => {
+    const log = async () => {
         if (editorRef.current) {
             const blogContent = String(editorRef.current.getContent())
-            dispatch(
+            await dispatch(
                 BlogProduct(id, { blogContent }, () => {
-                    alert('Add review product success')
+                    alert('Thêm tổng quan sản phẩm thành công')
                 }),
             )
+            redict(`${config.routes.product}`)
         }
     }
 

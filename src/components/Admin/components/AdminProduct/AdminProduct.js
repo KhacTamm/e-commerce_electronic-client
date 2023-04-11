@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import config from '../../../../config'
 
@@ -14,7 +14,6 @@ import Empty from './Empty/Empty'
 function AdminProduct() {
     const dispatch = useDispatch()
     const currentPage = useSelector((state) => state.allProduct.currentPage)
-    // const { List } = useSelector((state) => state.allTypeProduct)
     const { products } = useSelector((state) => state.allProduct.product)
 
     useEffect(() => {

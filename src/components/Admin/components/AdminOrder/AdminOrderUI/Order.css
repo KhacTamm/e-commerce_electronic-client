@@ -1,0 +1,8 @@
+.order-info-address_item {
+    display: flex;
+}
+.order-info-address_item p {
+    font-weight: bold;
+    width: 140px;
+    color: #555454;
+}

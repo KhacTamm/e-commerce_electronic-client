@@ -1,9 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useDispatch, useSelector } from 'react-redux'
 import { editCurrentPage, paginationProduct } from '../../../../redux/actions/ProductAction'
 
 import { Pagination } from 'antd'
 import './AdminProduct.css'
 import { DeleteOutlined } from '@ant-design/icons'
+import { DeleteAllProduct } from '../../../../redux/actions/ProductAction'
 
 import Product from './Product'
 
@@ -13,11 +14,13 @@ function ListProduct(props) {
     const currentPage = useSelector((state) => state.allProduct.currentPage)
     const { pages } = useSelector((state) => state.allProduct.product)
 
-    console.log(useSelector((state) => state.allProduct))
-
     const HandleChangePage = async (number) => {
         await dispatch(paginationProduct(number))
         dispatch(editCurrentPage(number))
+    }
+
+    const HandlDeleteAllProduct = async () => {
+        await dispatch(DeleteAllProduct())
     }
 
     return (
@@ -30,7 +33,7 @@ function ListProduct(props) {
                     <th scope="col">Giá bán</th>
                     <th scope="col">Giá khuyến mãi</th>
                     <th scope="col">Trạng thái</th>
-                    <th>
+                    <th onClick={() => HandlDeleteAllProduct()}>
                         <DeleteOutlined />
                     </th>
                 </tr>

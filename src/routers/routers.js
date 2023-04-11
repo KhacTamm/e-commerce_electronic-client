@@ -37,8 +37,16 @@ import Dashboard from '../components/Admin/pages/Dashboard'
 import AdminProduct from '../components/Admin/components/AdminProduct/AdminProduct'
 import AdminCreate from '../components/Admin/components/AdminProduct/AdminCreate'
 import AdminUpdate from '../components/Admin/components/AdminProduct/AdminUpdate'
-import AdminOrder from '../components/Admin/components/AdminOrder/AdminOrder'
+
+// import AdminOrder from '../components/Admin/components/AdminOrder/AdminOrder'
+import AdminOrderAll from '../components/Admin/components/AdminOrder/AdminOrderAll/AdminOrderAll'
+import AdminPenddingOrder from '../components/Admin/components/AdminOrder/AdminPenddingOrder/AdminPenddingOrder'
+import AdminShippingOrder from '../components/Admin/components/AdminOrder/AdminShippingOrder/AdminShippingOrder'
+import AdminPaidOrder from '../components/Admin/components/AdminOrder/AdminPaidOrder/AdminPaidOrder'
+import AdminCancelOrder from '../components/Admin/components/AdminOrder/AdminCancelOrder/AdminCancelOrder'
+
 import AdminUser from '../components/Admin/components/AdminUser/AdminUser'
+
 import AppChat from '../components/Admin/components/AppChat/AppChat'
 import ReviewProduct from '../components/Admin/components/AdminProduct/ReviewProduct/ReviewProduct'
 import DataFilterProduct from '../components/Admin/components/AdminProduct/DataFilterProduct/DataFilterProduct'
@@ -52,7 +60,6 @@ import CreateNewBrand from '../components/Admin/components/AdminProduct/AdminBra
 //-----------------------------------------------oder--------------------------------------------------//
 // import AdminOrderMenu from './AdminOrderMenu/AdminOrderMenu'
 // import AdminOrderAll from './AdminOrderAll/AdminOrderAll'
-import AdminOrderAll from '../components/Admin/components/AdminOrder/AdminOrderAll/AdminOrderAll'
 // import AdminOrder from '../components/Admin/components/AdminOrder/AdminOrder'
 
 //-----------------------------------------------oder--------------------------------------------------//
@@ -60,15 +67,14 @@ import AdminOrderAll from '../components/Admin/components/AdminOrder/AdminOrderA
 //Không cần đăng nhập vẫn vào được
 const publicRoutes = [
     //-----------------------------------oder-----------------------------------------//
-
-    //-----------------------------------oder-----------------------------------------//
-    // <Route path="/admin/order" exact component={AdminOrderAll}></Route>
     { path: config.routes.order, component: AdminOrderAll, layout: AdminLayout },
-    { path: config.routes.orderAll, component: AdminOrderAll, layout: AdminLayout },
+    { path: config.routes.orderPedding, component: AdminPenddingOrder, layout: AdminLayout },
+    { path: config.routes.orderShipping, component: AdminShippingOrder, layout: AdminLayout },
+    { path: config.routes.orderPaid, component: AdminPaidOrder, layout: AdminLayout },
+    { path: config.routes.orderCancel, component: AdminCancelOrder, layout: AdminLayout },
     //-----------------------------------admin-----------------------------------------//
     // { path: config.routes.admin, component: AdminPage },
     { path: config.routes.admin, component: Dashboard, layout: AdminLayout },
-    { path: config.routes.order, component: AdminOrder, layout: AdminLayout },
 
     { path: config.routes.customer, component: AdminUser, layout: AdminLayout },
     { path: config.routes.chat, component: AppChat, layout: AdminLayout },

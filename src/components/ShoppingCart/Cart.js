@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,7 +9,6 @@ import { useDispatch } from 'react-redux'
 import { DeleteAllToCart, getAllCart } from '../../redux/actions/CartAction'
 import EmptyCart from './EmtyCart/EmptyCart'
 import CartReceipt from './CartReceipt/CartReceipt'
-import { useEffect } from 'react'
 import Product from './Product'
 
 function Cart() {
@@ -54,7 +54,7 @@ function Cart() {
                             {/* <ListProduct products={cartItems} /> */}
                             <div className="cart">
                                 {cartItems.map((product, index) => (
-                                    <Product product={product} key={index} />
+                                    <Product cartItem={product} key={index} />
                                 ))}
                             </div>
                         </div>

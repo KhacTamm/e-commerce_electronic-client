@@ -1,3 +1,4 @@
+import React from 'react'
 import './DataFilterProduct.css'
 
 import CreateInfoFilter from './CreateInfoFilter'

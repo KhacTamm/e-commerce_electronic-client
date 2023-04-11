@@ -1,5 +1,6 @@
+import React from 'react'
 import './AdminOrder.css'
-import AdminOrderMenu from './AdminOrderMenu/AdminOrderMenu'
+// import AdminOrderMenu from './AdminOrderMenu/AdminOrderMenu'
 import AdminOrderAll from './AdminOrderAll/AdminOrderAll'
 
 import { Link } from 'react-router-dom'
@@ -18,7 +19,7 @@ function AdminOrder(props) {
                 </div>
             </div>
             <div className="order">
-                <AdminOrderMenu></AdminOrderMenu>
+                {/* <AdminOrderMenu></AdminOrderMenu> */}
                 <span>Orders</span>
                 <AdminOrderAll />
 

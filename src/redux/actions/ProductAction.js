@@ -104,6 +104,7 @@ export const removeProductById = (id) => async (dispatch) => {
 }
 
 export const saveProduct = (product) => async (dispatch, getState) => {
+    console.log(product)
     try {
         const {
             userSignin: { userInfo },
@@ -143,6 +144,38 @@ export const DeleteProduct = (productId) => async (dispatch, getState) => {
         dispatch({ type: 'DELETE_PRODUCT', payload: data })
     } catch (error) {
         dispatch({ type: 'DELETE_PRODUCT_FAIL', payload: error.message })
+    }
+}
+export const DeleteAllProduct = () => async (dispatch, getState) => {
+    try {
+        const {
+            userSignin: { userInfo },
+        } = getState()
+        const { data } = await axios.delete(`http://localhost:4000/products/delete/all`, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        })
+        dispatch({ type: 'DELETE_ALL_PRODUCT', payload: data })
+    } catch (error) {
+        dispatch({ type: 'DELETE_ALL_PRODUCT_FAIL', payload: error.message })
+    }
+}
+
+export const HandlePaymentProduct = (product) => async (dispatch, getState) => {
+    // console.log(product)
+    try {
+        const {
+            userSignin: { userInfo },
+        } = getState()
+        const { data } = await axios.put(`http://localhost:4000/products/handlepayment`, product, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        })
+        dispatch({ type: 'HANDLE_PAYMENT_PRODUCT', payload: data })
+    } catch (error) {
+        dispatch({ type: 'HANDLE_PAYMENT_FAIL', payload: error.message })
     }
 }
 

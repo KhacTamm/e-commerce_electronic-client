@@ -1,3 +1,4 @@
+import React from 'react'
 import { WechatOutlined } from '@ant-design/icons'
 import { getFirstCharacterUser } from '../../untils'
 

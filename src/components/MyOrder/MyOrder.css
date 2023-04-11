@@ -3,10 +3,12 @@
 .myorder {
     /* height: 100%; */
     padding: 1rem 0;
+
 }
 .myorder-menu {
     display: flex;
     flex-wrap: wrap;
+        margin-bottom: 12px;
     /* position: fixed; */
     /* 
     width: 100%;
@@ -25,12 +27,14 @@
 }
 .myorder-menu-item {
     position: relative;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.6rem;
     margin-right: 24px;
-    padding: 0.5rem 0;
+    padding: 12px 6px;
     background: white;
     border: 1px solid var(--color-primary-background);
+    border-radius: 20px;
     cursor: pointer;
 
     display: flex;
@@ -39,9 +43,11 @@
 }
 .myorder-menu-item.active {
     background: var(--color-primary-background);
+    font-weight: 700;
 }
+
 .myorder-menu-item a {
-    padding: 0 1rem;
+    padding: 12px;
     color: var(--color-primary-background);
     display: block;
 }
@@ -61,7 +67,7 @@
 .myorder-menu-item-newShipping {
     position: absolute;
     top: -15px;
-    right: -15px;
+    right: -10px;
 
     height: 30px;
     width: 30px;

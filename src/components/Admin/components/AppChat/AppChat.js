@@ -1,3 +1,4 @@
+import React from 'react'
 import './AppChat.css'
 
 import Contact from './Contact/Contact'

@@ -1,3 +1,4 @@
+import React from 'react'
 import Detail from '../components/detail/Detail'
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop'
 import AppChat from '../components/AppChat/AppChat'

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,7 +13,7 @@ function MenuOrder(props) {
     const { myOrdersPendding } = useSelector((state) => state.orderByUser)
     const { myOrdersShipping } = useSelector((state) => state.orderByUser)
 
-    console.log(useSelector((state) => state.orderByUser))
+    // console.log(useSelector((state) => state.orderByUser))
 
     useEffect(() => {
         const getAllOrderPenddingAndShippingByUser = async () => {
@@ -28,7 +28,7 @@ function MenuOrder(props) {
         <div className="myorder-menu">
             <div className={location.pathname === '/myOrder' ? 'myorder-menu-item active' : 'myorder-menu-item'}>
                 <Link to={'/myOrder'}>Tất cả</Link>
-                {myOrdersPendding ? <div className="myorder-menu-item-newPendding">{myOrders.length}</div> : ''}
+                {myOrders ? <div className="myorder-menu-item-newPendding">{myOrders.length}</div> : ''}
             </div>
             <div
                 className={location.pathname === '/myOrder/pendding' ? 'myorder-menu-item active' : 'myorder-menu-item'}

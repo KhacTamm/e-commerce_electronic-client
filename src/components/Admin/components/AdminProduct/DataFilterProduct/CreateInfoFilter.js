@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useDispatch } from 'react-redux'
@@ -44,10 +44,11 @@ export default function CreateInfoFilter() {
     const onSubmit = async (data, e) => {
         const options = createArrayOption([...addOption])
         const newData = { ...data, options }
-        await dispatch(CreateSelectListItem(newData))
-        setAddOption([])
-        e.target.reset()
-        dispatch(getAllSelectList())
+        console.log(options)
+        // await dispatch(CreateSelectListItem(newData))
+        // setAddOption([])
+        // e.target.reset()
+        // dispatch(getAllSelectList())
     }
 
     return (

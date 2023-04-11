@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlinePlus } from 'react-icons/ai'
 import './Empty.css'

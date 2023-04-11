@@ -73,6 +73,9 @@ export const getAllProductReducer = (state = initialState, action) => {
         case 'DELETE_PRODUCT': {
             return { ...state, product: action.payload }
         }
+        case 'DELETE_ALL_PRODUCT': {
+            return { ...state, product: action.payload }
+        }
 
         case 'DELETE_PRODUCT_FAIL': {
             return { ...state, error: action.payload }

@@ -33,6 +33,10 @@ export const getAllUserReducer = (state = {}, action) => {
             return { ...state, user: action.payload }
         }
 
+        case 'UPDATE_USER': {
+            return { ...state, user: action.payload }
+        }
+
         case 'DELETE_USER': {
             return { ...state }
         }

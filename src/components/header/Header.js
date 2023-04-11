@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { NavLink, Link } from 'react-router-dom'
 import config from '../../config'
@@ -16,12 +16,10 @@ import { BiUser } from 'react-icons/bi'
 // import Tippy
 
 import { DownOutlined, ShoppingCartOutlined, SearchOutlined } from '@ant-design/icons'
-import { BsSearch } from 'react-icons/bs'
-import { AiOutlineHome } from 'react-icons/ai'
 import images from '../../assets'
 import './Header.css'
 
-function Header(props) {
+function Header() {
     const dispatch = useDispatch()
     const history = useNavigate()
 
@@ -31,23 +29,29 @@ function Header(props) {
     const userSignin = useSelector((state) => state.userSignin)
     const { userInfo, error } = userSignin
     const [search, setSearch] = useState('')
-    const cartItems = useSelector((state) => state.cart.cartItems)
-    const amount = cartItems.reduce((a, b) => a + b.qty, 0)
-    // const amount = 1
+    const { quantity } = useSelector((state) => state.cart)
+    const amount = quantity
+
+    useEffect(() => {
+        if (userInfo) {
+            const action = getAllCart(userInfo._id)
+            dispatch(action)
+        }
+    }, [dispatch])
+
+    const toCart = () => {
+        if (userInfo) {
+            history('/cart')
+        } else {
+            history('/login')
+        }
+    }
 
     const [menu, setMenu] = useState(true)
 
     const handleSignout = () => {
         dispatch(SignoutUser())
     }
-
-    useEffect(() => {
-        dispatch(getAllCart(userInfo._id))
-        // return () => {
-        //     return []
-        // }
-        console.log(cartItems)
-    }, [dispatch])
 
     const SearchProduct = async (e) => {
         e.preventDefault()
@@ -122,10 +126,11 @@ function Header(props) {
                             </NavLink>
                         </li>
                         <li className="list-item user">
-                            <li className="shopcart navNoUser">
+                            <li className="shopcart navNoUser" onClick={() => toCart()}>
                                 <NavLink
-                                    to={config.routes.cart}
                                     className={({ isActive }) => (isActive ? 'active shop-cart' : 'noActive shop-cart')}
+                                    to={config.routes.cart}
+                                    end
                                 >
                                     <ShoppingCartOutlined style={{ fontSize: '30px' }}></ShoppingCartOutlined>
                                     <span className="count"> {amount} </span>

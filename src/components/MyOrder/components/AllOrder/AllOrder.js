@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { formatPrice } from '../../../../untils/index'
 
@@ -19,7 +19,7 @@ const orderItem = (item) => (
             <p>{item.name}</p>
             <span>x{item.qty}</span>
         </div>
-        <div className="all-myorder-item-price">{formatPrice(item.salePrice)}</div>
+        <div className="all-myorder-item-price">{formatPrice(item.salePrice)}₫</div>
     </div>
 )
 
@@ -28,7 +28,7 @@ export const orderParent = (item) => (
         <div className="all-myorder-list">{item.orderItems.map((item) => orderItem(item))}</div>
         <div className="all-myorder-item-totalprice">
             <div>
-                <span>Tổng số tiền : </span> <strong>{formatPrice(item.totalPrice)}đ</strong>
+                <span>Tổng số tiền : </span> <strong>{formatPrice(item.totalPrice)}₫</strong>
             </div>
         </div>
     </div>

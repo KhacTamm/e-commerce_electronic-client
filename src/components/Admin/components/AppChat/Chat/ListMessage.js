@@ -1,3 +1,5 @@
+import React from 'react'
+
 function ListMessage(props) {
     const { messages, user } = props
     return (

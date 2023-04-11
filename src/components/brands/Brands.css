@@ -10,6 +10,11 @@
 
 .brand-item {
     cursor: pointer;
+    width: 150px;
+}
+
+.brand-item img {
+    width: 100%;
 }
 
 .marquee {

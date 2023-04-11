@@ -20,10 +20,7 @@ export const AddToCart = (product) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         })
-        // dispatch({ type: 'ADD_TO_CART', payload: data })
-        // dispatch({ type: 'CART_EMTY' })
-        // console.log(data)
-        // localStorage.removeItem('cartItems')
+        dispatch({ type: 'ADD_TO_CART', payload: product.count })
     } catch (error) {}
     // dispatch({ type: 'ADD_TO_CART', payload: product })
 }
@@ -75,16 +72,31 @@ export const DeleteAllToCart = (userID) => async (dispatch, getState) => {
     }
 }
 
-export const DeleteQtyProduct = (product) => async (dispatch) => {
-    dispatch({ type: 'DELETE_QTY_PRODUCT', payload: product })
-}
+// export const DeleteQtyProduct = (product) => async (dispatch) => {
+//     dispatch({ type: 'DELETE_QTY_PRODUCT', payload: product })
+// }
 
 export const DecreaseQtyProduct = (IDproduct) => async (dispatch) => {
     // console.log(IDproduct)
     try {
         const { data } = await axios.put(`http://localhost:4000/cart/decreaseqty/${IDproduct}`)
-        console.log(data)
+        dispatch({ type: 'DECREASE_QTY_CART' })
     } catch (error) {
         // dispatch({ type: 'INCREASE_CART_FAIL', payload: error.message })
     }
+}
+
+export const IncreaseQtyProduct = (product) => async (dispatch, getState) => {
+    try {
+        const {
+            userSignin: { userInfo },
+        } = getState()
+        const { data } = await axios.post(`http://localhost:4000/cart/addCart/${userInfo}`, product, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        })
+        dispatch({ type: 'INCREASE_QTY_CART' })
+    } catch (error) {}
+    // dispatch({ type: 'ADD_TO_CART', payload: product })
 }

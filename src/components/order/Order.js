@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
@@ -16,6 +16,7 @@ function Order(props) {
     const allProvince = useSelector((state) => state.address.province)
     const allDistrict = useSelector((state) => state.address.district)
     const allWard = useSelector((state) => state.address.ward)
+    const quantity = useSelector((state) => state.cart.quantity)
 
     const [listProvince, setListProvince] = useState(false)
     const [listDistrict, setListDistrict] = useState(false)
@@ -39,7 +40,7 @@ function Order(props) {
     }
 
     const cartItems = useSelector((state) => state.cart.cartItems)
-    const totalPrice = cartItems.reduce((total, item) => total + item.qty * item.salePrice, 0)
+    const totalPrice = cartItems.reduce((total, item) => total + quantity * item.salePrice, 0)
     const userInfo = useSelector((state) => state.userSignin.userInfo)
 
     const onSubmit = async (data) => {

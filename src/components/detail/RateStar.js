@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import config from '../../config'
 
@@ -25,7 +25,7 @@ function RateStar(props) {
     const { userInfo } = useSelector((state) => state.userSignin)
     const product = useSelector((state) => state.getProductById.product)
 
-    console.log(product)
+    // console.log(product)
 
     const countReview = product.reviews.length
     // let averageRate = Math.round(product.reviews.reduce((a, c) => a + c.star, 0) / countReview)
@@ -35,7 +35,7 @@ function RateStar(props) {
         var existsUser = product.reviews.find((x) => x.name == userInfo.name)
     }
 
-    console.log(existsUser)
+    // console.log(existsUser)
 
     const fiveStar = Math.round((product.reviews.filter((x) => x.star === 5).length / countReview) * 100)
     const fourStar = Math.round((product.reviews.filter((x) => x.star === 4).length / countReview) * 100)

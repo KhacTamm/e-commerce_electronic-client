@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,7 +8,7 @@ import { getAllSelectList } from '../../../../redux/actions/SelectListAction'
 import { getAllTypeProduct } from '../../../../redux/actions/ListTypeProductAction'
 import { getAllBrandProduct } from '../../../../redux/actions/ListBrandProductAction'
 
-function AdminCreate(props) {
+function AdminCreate() {
     const { register, handleSubmit } = useForm({ defaultValues: {} })
     const dispatch = useDispatch()
     const history = useNavigate()
@@ -49,14 +49,20 @@ function AdminCreate(props) {
         formData.append('type', activeTypeProduct)
         formData.append('image', image)
 
+
         formData.append('os', data.os)
+        formData.append('disk', data.disk)
+        formData.append('card', data.card)
         formData.append('ram', data.ram)
         formData.append('battery', data.battery)
         formData.append('rom', data.rom)
-        formData.append('camera', data.camera)
+        formData.append('screen', data.screen)
+        formData.append('cameraAfter', data.cameraAfter)
+        formData.append('cameraBefore', data.cameraBefore)
+        formData.append('resolution', data.resolution)
+
         formData.append('special', data.special)
         formData.append('design', data.design)
-        formData.append('screen', data.screen)
 
         await dispatch(saveProduct(formData))
         await dispatch(editCurrentPage(pages))
@@ -71,6 +77,7 @@ function AdminCreate(props) {
             <img src={item.img}></img>
         </div>
     )
+
     const MenuFirmProductBrand = (item) => (
         <div
             className={
@@ -105,7 +112,18 @@ function AdminCreate(props) {
 
                 <div className="filter-menu-firm">{List ? List.map((item) => MenuFirmProduct(item)) : ''}</div>
 
-                {SelectList && SelectList.length > 0
+                <input {...register('card')} placeholder="Loại card đồ họa" autoComplete="off"></input>
+                <input {...register('disk')} placeholder="Ổ cứng" autoComplete="off"></input>
+                <input {...register('os')} placeholder="Hệ điều hành" autoComplete="off"></input>
+                <input {...register('ram')} placeholder="Dung lượng RAM" autoComplete="off"></input>
+                <input {...register('rom')} placeholder="Bộ nhớ trong" autoComplete="off"></input>
+                <input {...register('screen')} placeholder="Kích thước màn hình" autoComplete="off"></input>
+                <input {...register('resolution')} placeholder="Độ phân giải màn hình" autoComplete="off"></input>
+                <input {...register('battery')} placeholder="PIN" autoComplete="off"></input>
+                <input {...register('cameraBefore')} placeholder="Camera trước" autoComplete="off"></input>
+                <input {...register('cameraAfter')} placeholder="Camera sau" autoComplete="off"></input>
+
+                {/* {SelectList && SelectList.length > 0
                     ? SelectList.map((item) => (
                           <div className="select-type">
                               <select {...register(`${item.property}`)}>
@@ -116,7 +134,7 @@ function AdminCreate(props) {
                               </select>
                           </div>
                       ))
-                    : ''}
+                    : ''} */}
 
                 <input type="file" {...register('image')} onChange={handleFileImageChange}></input>
                 <button type="submit">Thêm sản phẩm</button>

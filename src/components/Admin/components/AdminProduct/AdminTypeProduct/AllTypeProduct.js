@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import config from '../../../../../config'
 
@@ -85,14 +85,14 @@ export default function AllTypeProduct() {
                             </tr>
                             {List.map((item, index) => MenuFirmProduct(item, index))}
                         </table>
-                        <div className="pagination">
+                        {/* <div className="pagination">
                             <Pagination
                                 defaultCurrent={1}
                                 current={currentPage}
                                 total={pages * 10}
                                 onChange={HandleChangePage}
                             />
-                        </div>
+                        </div> */}
                     </div>
                 ) : (
                     <Empty path={`${config.routes.createType}`} lable="loại sản phẩm" />

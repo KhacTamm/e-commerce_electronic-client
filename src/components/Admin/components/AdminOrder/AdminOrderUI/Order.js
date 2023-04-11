@@ -1,23 +1,30 @@
-import { formatPrice, formatDateOrderPaypal } from '../../../../../untils/index'
+import React from 'react'
+import { formatPrice, formatDateOrderPaypal, formatDate } from '../../../../../untils/index'
+
+import { useNavigate } from 'react-router-dom'
+import config from '../../../../../config'
 
 import { useDispatch } from 'react-redux'
 import { createOrderGhn, PrintOrderGhn } from '../../../../../redux/actions/GhnAction'
 import { deleteOrder, getAllOrder, ShippingOrder } from '../../../../../redux/actions/OrderAction'
 
+import './Order.css'
+
 function Order(props) {
     const { order } = props
     const dispatch = useDispatch()
+    const history = useNavigate()
 
-    const { orderItems, totalPrice, paymentMethod, cancelOrder, shippingAddress, status, paymentResult } = order
+    const { orderItems, totalPrice, paymentMethod, cancelOrder, shippingAddress, status, paymentResult, createdAt } =
+        order
+    // console.log(order.orderItems)
 
     const handleShippingOrder = async (order) => {
         await dispatch(createOrderGhn(order._id)) // create order in giaohangnhanh
-
-        // console.log(order.orderItems)
-
         await dispatch(ShippingOrder(order._id))
 
-        dispatch(getAllOrder())
+        await dispatch(getAllOrder())
+        history(config.routes.orderShipping)
     }
 
     const handlePrintOrder = (order) => {
@@ -26,7 +33,8 @@ function Order(props) {
 
     const handleDeleteOrder = async (order) => {
         await dispatch(deleteOrder(order._id))
-        dispatch(getAllOrder())
+        await dispatch(getAllOrder())
+        history(config.routes.orderCancel)
     }
 
     return (
@@ -38,9 +46,10 @@ function Order(props) {
                             <span className="img">
                                 <img src={item.image}></img>
                             </span>
-                            <span className="qty">Qty: {item.qty}</span>
+                            <span className="qty">Số lượng: {item.qty}</span>
                             <span className="name">{item.name}</span>
-                            <span className="price">{formatPrice(item.salePrice)}</span>
+                            <span className="price">{formatPrice(item.salePrice)}₫</span>
+                            <span className="time">{formatDate(createdAt)}</span>
                         </div>
                     ))}
                 </div>
@@ -49,10 +58,20 @@ function Order(props) {
                 </div>
                 <div className="order-info">
                     <div className="order-info-address">
-                        <b>Địa chỉ : </b> {'  '}
-                        {shippingAddress.name},{''}
-                        {shippingAddress.province}, {shippingAddress.district},{'  '}
-                        {shippingAddress.ward}, {shippingAddress.detail}, {shippingAddress.phone}
+                        <div className="order-info-address_item">
+                            <p>Khách hàng </p>
+                            {shippingAddress.name}
+                        </div>
+                        <div className="order-info-address_item">
+                            <p>Số điện thoại</p>
+                            {shippingAddress.phone}
+                        </div>
+                        <div className="order-info-address_item">
+                            <p>Địa chỉ</p>
+                            {shippingAddress.ward}, {shippingAddress.detail}, {shippingAddress.province},
+                            {shippingAddress.district}
+                        </div>
+                       
                     </div>
                 </div>
 
@@ -82,7 +101,7 @@ function Order(props) {
                             ''
                         )}
 
-                        {cancelOrder === true ? (
+                        {cancelOrder === true && status !== 'cancel' ? (
                             <>
                                 <span> Khách yêu cầu hủy đơn </span>
                                 <button className="shipping" onClick={() => handleDeleteOrder(order)}>
@@ -97,6 +116,13 @@ function Order(props) {
                             <button className="shipping" onClick={() => handlePrintOrder(order)}>
                                 In đơn hàng
                             </button>
+                        ) : (
+                            ''
+                        )}
+                        {status === 'cancel' ? (
+                            <span className="order-status" style={{ fontSize: '1.7rem', fontWeight: '600' }}>
+                                Đơn hàng đã hủy
+                            </span>
                         ) : (
                             ''
                         )}

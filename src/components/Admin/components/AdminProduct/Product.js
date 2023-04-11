@@ -1,3 +1,4 @@
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -26,8 +27,8 @@ function Product(props) {
                 <img src={product.image}></img>
             </td>
             <td>{product.name}</td>
-            <td className="admin_price">{formatPrice(product.salePrice)}</td>
-            <td className="admin_price">{formatPrice(product.price)}</td>
+            <td className="admin_price">{formatPrice(product.salePrice)} ₫</td>
+            <td className="admin_price">{formatPrice(product.price)} ₫</td>
             <td>{product.amount > 0 ? 'Còn hàng' : 'Hết hàng'}</td>
             <td className="delete-product" onClick={(e) => handleDeleteProduct(product)}>
                 <DeleteOutlined />

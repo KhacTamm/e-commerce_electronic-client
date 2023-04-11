@@ -1,12 +1,9 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import config from '../../../../../config'
 
 import { formatDate } from '../../../../../untils'
-// import { editCurrentPage, paginationProduct } from '../../../../../actions/ProductAction'
-// // import { deleteTypeProduct, getAllTypeProduct } from '../../../../../actions/ListTypeProductAction'
-// import { deleteBrandProduct, getAllBrandProduct } from '../../../../../actions/ListBrandProductAction'
 
 import { editCurrentPage } from '../../../../../redux/actions/ProductAction'
 import { paginationBrandProduct } from '../../../../../redux/actions/ListBrandProductAction'
@@ -22,7 +19,7 @@ import Empty from '../Empty/Empty'
 export default function AllBrandProduct() {
     const dispatch = useDispatch()
     const { ListBrannd } = useSelector((state) => state.allBrandProduct)
-    const currentPage = useSelector((state) => state.allBrandProduct.currentPage)
+    const { currentPage } = useSelector((state) => state.allBrandProduct.currentPage)
     const { pages } = useSelector((state) => state.allBrandProduct.ListBrannd)
 
     console.log(currentPage)

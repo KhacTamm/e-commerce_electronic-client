@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PayPalButton } from 'react-paypal-button-v2'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { createOrder, payOrder } from '../../redux/actions/OrderAction'
+import { HandlePaymentProduct } from '../../redux/actions/ProductAction'
+import { DeleteAllToCart } from '../../redux/actions/CartAction'
 import VnPay from './VnPay'
 
 export default function Payment() {
@@ -17,6 +19,7 @@ export default function Payment() {
     })
 
     const { order } = useSelector((state) => state.orderInfo)
+    const { userInfo } = useSelector((state) => state.userSignin)
 
     const payLater = () => {
         setChoosePay({ payOnline: false, payLater: true })
@@ -45,7 +48,10 @@ export default function Payment() {
         }
 
         await dispatch(createOrder(OrderPaid))
+        await dispatch(DeleteAllToCart(userInfo._id))
+        await dispatch(HandlePaymentProduct(order.orderItems))
         history('/orderSuccess')
+        console.log(order.orderItems)
     }
 
     useEffect(() => {

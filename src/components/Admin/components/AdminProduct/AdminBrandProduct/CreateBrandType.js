@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -23,7 +23,7 @@ export default function CreateNewBrand() {
         e.target.reset()
         await dispatch(CreateNewBrandProduct(formData))
         dispatch(getAllBrandProduct())
-        history('/admin/brandlist')
+        history('/admin/brand')
     }
 
     const handleChangeImage = (e) => {

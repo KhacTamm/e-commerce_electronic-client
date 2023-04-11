@@ -20,6 +20,10 @@ export const getAllOrderReducer = (state = {}, action) => {
             return { ...state, orderPaid: action.payload }
         }
 
+        case 'GET_ALL_ORDER_CANCEL': {
+            return { ...state, orderCancel: action.payload }
+        }
+        
         case 'ORDER_CREATE_SUCCESS':
             return { ...state, order: action.payload }
 

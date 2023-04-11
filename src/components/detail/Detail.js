@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,6 +9,7 @@ import DetailInfo from './DetailInfo'
 import RateStar from './RateStar'
 import CommentProduct from './CommentProduct'
 import BlogContent from './BlogContent'
+import Specifications from './Specifications/Specifications'
 
 function Detail(props) {
     const dispatch = useDispatch()
@@ -38,15 +39,21 @@ function Detail(props) {
                         <DetailInfo product={detailProduct}></DetailInfo>
                     </div>
 
-                    <div className="detail_item">
-                        <h4>Thông số kỹ thuật</h4>
+                    <div className="kt_dd">
+                        <div className="detail_item dd">
+                            <h4>Đặc điểm nổi bật</h4>
+                            <BlogContent></BlogContent>
+                        </div>
+                        <div className="detail_item kt">
+                            <h4>Thông số kỹ thuật</h4>
+                            <Specifications product={detailProduct}></Specifications>
+                        </div>
+                        
+
                         {/* <BlogContent></BlogContent> */}
                     </div>
 
-                    <div className="detail_item">
-                        <h4>Đặc điểm nổi bật</h4>
-                        <BlogContent></BlogContent>
-                    </div>
+                  
 
                     <div className="detail_item">
                         <RateStar></RateStar>

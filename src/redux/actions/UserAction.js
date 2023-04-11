@@ -39,6 +39,23 @@ export const getAllUser = () => async (dispatch, getState) => {
     }
 }
 
+export const updateUser = (user) => async (dispatch, getState) => {
+    
+    console.log(user)
+    const {
+        userSignin: { userInfo },
+    } = getState()
+    try {
+        const { data } = await axios.put(`http://localhost:4000/user/update/${userInfo._id}`, user, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        })
+        dispatch({ type: 'UPDATE_USER', payload: data })
+    } catch (error) {
+        dispatch({ type: 'UPDATE_USER_FAIL', error: error.message })
+    }
+}
 export const deleteUser = (userId) => async (dispatch, getState) => {
     const {
         userSignin: { userInfo },

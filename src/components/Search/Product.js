@@ -1,3 +1,4 @@
+import React from 'react'
 import { formatPrice } from '../../untils'
 
 function Product(props) {

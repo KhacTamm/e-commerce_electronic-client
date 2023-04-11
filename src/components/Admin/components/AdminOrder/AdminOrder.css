@@ -32,11 +32,22 @@
     align-items: center;
     padding-bottom: 1rem;
 }
+.order-items-item .img,
 .order-items-item .qty,
-.order-items-item .name,
-.order-items-item .price,
-.order-items-item .img {
-    width: 25%;
+.order-items-item .time,
+.order-items-item .price{
+    width: 15%;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+    color: #6b6b6b;
+    text-align: center;
+}
+
+
+.order-items-item .name {
+    width: 40%;
+    margin: 0 20px;
     font-weight: 600;
     font-size: 16px;
     text-align: left;
@@ -44,8 +55,8 @@
 }
 
 .order-list-items img {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    /* height: 100px; */
 }
 
 .toatalPrice {
@@ -149,6 +160,12 @@
     font-size: 15px;
     color: #6b6b6b;
     display: flex;
+}
+
+.menu_order-admin {
+    width: 100%;
+    display: inline-flex;
+    justify-content: end;
 }
 
 /* -------------- print */

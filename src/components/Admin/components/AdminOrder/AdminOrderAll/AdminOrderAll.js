@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Link } from 'react-router-dom'
@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { getAllOrder } from '../../../../../redux/actions/OrderAction'
 
 import ListOrder from '../AdminOrderUI/ListOrder'
+import EmptyOrder from '../EmptyOrder/EmptyOrder'
+import MenuOrder from '../MenuOrder/MenuOrder'
 
 function AdminOrderAll(props) {
     const dispatch = useDispatch()
@@ -16,7 +18,7 @@ function AdminOrderAll(props) {
 
     useEffect(() => {
         dispatch(getAllOrder())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>
@@ -24,13 +26,12 @@ function AdminOrderAll(props) {
                 <div className="dashboard-top-search">
                     <p className="admin-TypeProduct_header_title">Quản lý đơn hàng</p>
                 </div>
-                {/* <div className="dashboard-top-content">
-                    <li className="dashboard-top-content-avatar">
-                        <Link to="/">Quay lại trang chủ</Link>
-                    </li>
-                </div> */}
+                <div className='menu_order-admin'>
+                    <MenuOrder></MenuOrder>
+                </div>
             </div>
-            {orders && orders.length > 0 ? <ListOrder orders={orders} /> : <h4>Không có đơn hàng</h4>}
+            {/* <MenuOrder></MenuOrder> */}
+            {orders && orders.length > 0 ? <ListOrder orders={orders} /> : <EmptyOrder></EmptyOrder>}
         </div>
     )
 }

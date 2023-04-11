@@ -38,32 +38,58 @@ function Sidebar(props) {
         <div className="sidebar">
             <div className="sidebar-top">
                 <Link to="/">
-                    <img src={images.logo} />
+                    {/* <img src={images.logo} /> */}
                     <h1>Ba-Tê Shop</h1>
                 </Link>
             </div>
             <div className="sidebar-list">
-                <NavLink to={config.routes.admin} className={'sidebar-list-item'} end>
+                <NavLink
+                    to={config.routes.admin}
+                    className={location.pathname === '/admin' ? 'sidebar-list-item active' : 'sidebar-list-item'}
+                >
                     <AppstoreOutlined />
                     <p>Bảng điều khiển</p>
                 </NavLink>
-                <NavLink to={config.routes.customer} className={'sidebar-list-item'} end>
+                <NavLink
+                    to={config.routes.customer}
+                    className={
+                        location.pathname === '/admin/customer' ? 'sidebar-list-item active' : 'sidebar-list-item'
+                    }
+                >
                     <UsergroupAddOutlined />
                     <p>Khách hàng</p>
                 </NavLink>
-                <NavLink to={config.routes.product} className={'sidebar-list-item'} end>
+                <NavLink
+                    to={config.routes.product}
+                    className={
+                        location.pathname === '/admin/product' ? 'sidebar-list-item active' : 'sidebar-list-item'
+                    }
+                >
                     <ShopOutlined></ShopOutlined>
                     <p>Sản phẩm</p>
                 </NavLink>
-                <NavLink to={config.routes.category} className={'sidebar-list-item'} end>
+                <NavLink
+                    to={config.routes.category}
+                    className={
+                        location.pathname === '/admin/typeList' ? 'sidebar-list-item active' : 'sidebar-list-item'
+                    }
+                >
                     <BsMenuButtonWide />
                     <p>Loại sản phẩm</p>
                 </NavLink>
-                <NavLink to={config.routes.brand} className={'sidebar-list-item'} end>
+                <NavLink
+                    to={config.routes.brand}
+                    className={
+                        location.pathname === '/admin/brand' ? 'sidebar-list-item active' : 'sidebar-list-item'
+                    }
+                >
                     <SiBrandfolder />
                     <p>Thương hiệu</p>
                 </NavLink>
-                <NavLink to={config.routes.order} className={'sidebar-list-item'} end>
+                <NavLink
+                    to={config.routes.order}
+                    className={location.pathname === '/admin/order' ? 'sidebar-list-item active' : 'sidebar-list-item'}
+                >
                     <OrderedListOutlined />
                     <p>
                         Đơn hàng

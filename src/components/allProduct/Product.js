@@ -3,7 +3,7 @@ import config from '../../config'
 
 import { formatPrice } from '../../untils/index'
 
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useDispatch, useSelector } from 'react-redux'
 import { AddToCart } from '../../redux/actions/CartAction'
 
 import { message } from 'antd'
@@ -15,6 +15,7 @@ function Product(props) {
     const { userInfo } = useSelector((state) => state.userSignin)
     const countReview = product.reviews.length
     let averageRate = (product.reviews.reduce((a, c) => a + c.star, 0) / countReview).toFixed(1)
+    const { quantity } = useSelector((state) => state.cart)
 
     const dispatch = useDispatch()
     const location = useLocation()
@@ -35,26 +36,44 @@ function Product(props) {
     }
 
     const AddProductToCart = async (product) => {
-        const cartItem = {
-            ...product,
-            count: 1,
-            idUser: userInfo._id,
+        if (userInfo) {
+            if (quantity <= product.amount) {
+                const cartItem = {
+                    ...product,
+                    count: 1,
+                    idUser: userInfo._id,
+                }
+
+                const action = AddToCart(cartItem)
+                await dispatch(action)
+                history(`${config.routes.cart}`)
+                success()
+            } else {
+                history(`${config.routes.cart}`)
+            }
+        } else {
+            history(`${config.routes.login}`)
         }
-        const action = AddToCart(cartItem)
-        await dispatch(action)
-        history(`${config.routes.cart}`)
-        success()
     }
 
-    const AddProductCart = async (product) => {
-        const cartItem = {
-            ...product,
-            count: 1,
-            idUser: userInfo._id,
+    const AddProductCart = async (e, product) => {
+        if (userInfo) {
+            if (quantity <= product.amount) {
+                const cartItem = {
+                    ...product,
+                    count: 1,
+                    idUser: userInfo._id,
+                }
+
+                const action = AddToCart(cartItem)
+                await dispatch(action)
+                success()
+            } else {
+                e.preventDefault()
+            }
+        } else {
+            history(`${config.routes.login}`)
         }
-        const action = AddToCart(cartItem)
-        await dispatch(action)
-        success()
     }
 
     return (
@@ -71,7 +90,7 @@ function Product(props) {
                     </div>
                     <AiOutlineShoppingCart
                         onClick={(e) => {
-                            AddProductCart(product)
+                            AddProductCart(e,product)
                         }}
                         className="cartIcon"
                     />
@@ -92,14 +111,15 @@ function Product(props) {
                     ''
                 )}
                 <div className="buy">
-                    <Link
+                    <div
                         // to={config.routes.cart}
+                        className="button_buy"
                         onClick={(e) => {
                             AddProductToCart(product)
                         }}
                     >
                         Mua Ngay
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>

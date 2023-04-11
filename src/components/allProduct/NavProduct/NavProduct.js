@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllTypeProduct } from '../../../redux/actions/ListTypeProductAction'
 import { getAllProductByType, getAllProductByBrand } from '../../../redux/actions/ProductAction'
@@ -29,7 +29,7 @@ function NavProduct() {
         }
     }, [dispatch])
 
-    console.log(ListBrannd)
+    // console.log(ListBrannd)
 
     const HandleFilterProductByType = async (type) => {
         dispatch(getAllProductByType(type))
@@ -53,14 +53,17 @@ function NavProduct() {
 
     return (
         <div className="navProduct">
-            <div className="navProduct_title">Danh mục</div>
-            <div className="navProduct_type">{List ? List.map((type, index) => NavTypeProductItems(type)) : ''}</div>
             <div className="navProduct_brand">
                 <div className="navProduct_title">Thương hiệu</div>
                 <div className="navProduct_brand-content">
                     {ListBrannd ? ListBrannd.map((brand, index) => NavBrandProductItems(brand)) : ''}
                 </div>
             </div>
+            <div className="navProduct_type">
+                <div className="navProduct_title">Danh mục</div>
+                <div className="navProduct_type">{List ? List.map((type, index) => NavTypeProductItems(type)) : ''}</div>
+            </div>
+          
         </div>
     )
 }
