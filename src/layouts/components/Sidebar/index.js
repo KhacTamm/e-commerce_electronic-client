@@ -32,11 +32,11 @@ function SideBar() {
         userService
             .getSuggested({ page, perPage: PER_PAGE })
             .then((data) => {
-                console.log({ data })
+                // console.log({ data })
                 setSuggestedUsers((prevUsers) => [...prevUsers, data])
             })
             .catch((error) => {
-                console.log({ error })
+                // console.log({ error })
             })
     }, [page])
 

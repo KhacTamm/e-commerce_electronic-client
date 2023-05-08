@@ -20,14 +20,14 @@ import CartPage from '../pages/CartPage'
 import OrderPage from '../pages/OrderPage'
 import OrderSuccessPage from '../pages/OrderSuccessPage'
 
-import MyOrderPage from '../pages/MyOrderPage'
+// import MyOrderPage from '../pages/MyOrderPage'
 import AllOrder from '../components/MyOrder/components/AllOrder/AllOrder'
 import PenddingOrder from '../components/MyOrder/components/PenddingOrder/PenddingOrder'
 import ShippingOrder from '../components/MyOrder/components/ShippingOrder/ShippingOrder'
 import PaidOrder from '../components/MyOrder/components/PaidOrder/PaidOrder'
 
 import PaymentPage from '../pages/PaymentPage'
-import AdminPage from '../pages/AdminPage'
+// import AdminPage from '../pages/AdminPage'
 // import ResetScroll from '../components/ResetScroll/ResetScroll'
 //----------------------------customer------------------------//
 

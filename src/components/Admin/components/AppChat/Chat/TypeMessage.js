@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { IoIosSend } from 'react-icons/io'
+import "../AppChat.css"
 
 function TypeMessage(props) {
   const { onSubmit } = props;
@@ -20,12 +22,15 @@ function TypeMessage(props) {
   return (
     <form onSubmit={handleFormSubmit} className="ad-chatuser-typemessage">
       <input
-        placeholder="Type a message"
+        placeholder="Nhập nội dung tin nhắn"
         type="text"
         value={value}
         onChange={handleValueChange}
       />
-      <button type="submit">Gửi</button>
+      <button className="btn-send" type="submit">
+          <IoIosSend></IoIosSend>
+          <span>Giử</span>
+      </button>
     </form>
   );
 }

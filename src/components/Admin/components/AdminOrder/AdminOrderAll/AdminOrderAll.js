@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Link } from 'react-router-dom'
-
-// import { getAllOrder } from '../../../../../actions/OrderAction'
 import { getAllOrder } from '../../../../../redux/actions/OrderAction'
 
 import ListOrder from '../AdminOrderUI/ListOrder'
@@ -13,7 +10,6 @@ import MenuOrder from '../MenuOrder/MenuOrder'
 function AdminOrderAll(props) {
     const dispatch = useDispatch()
     const orders = useSelector((state) => state.allOrder.order)
-    const { orderGhnInfo } = useSelector((state) => state.orderGhn)
     const orderGhn = useSelector((state) => state.orderGhn)
 
     useEffect(() => {

@@ -9,49 +9,74 @@ import Catergory from '../components/catergory/Catergory'
 import Brands from '../components/brands/Brands'
 import ListProduct from '../components/allProduct/ListProduct'
 
-import { useDispatch, useSelector } from 'react-redux'
-// import { getAllProduct } from '..//actions/ProductAction'
-import { getAllProduct } from '../redux/actions/ProductAction'
 import { handlePercentDiscount } from '../untils'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { getAllProduct } from '../redux/actions/ProductAction'
+import { getAllTypeProduct } from '../redux/actions/ListTypeProductAction'
+import { getAllBrandProduct } from '../redux/actions/ListBrandProductAction'
+
 import Blog from '../components/Blog/Blog'
 
-function HomePage(props) {
-    const { userInfo } = useSelector((state) => state.userSignin)
+function HomePage() {
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     const dispatch = useDispatch()
 
-    const product = useSelector((state) => state.allProduct.product)
+    const {product} = useSelector((state) => state.allProduct)
+    const {typeProduct} = useSelector((state) => state.allTypeProduct)
+    const {ListBrannd} = useSelector((state) => state.allBrandProduct)
 
     // console.log(product)
+    // console.log(typeProduct)
+    // console.log(useSelector((state) => state.allTypeProduct.typeProduct))
 
     useEffect(() => {
         dispatch(getAllProduct())
-
-        return () => {
-            return []
-        }
+        dispatch(getAllTypeProduct())
+        dispatch(getAllBrandProduct())
     }, [dispatch])
+
+    const handleDataType = (typeProduct) => {
+        if ( typeProduct.typeProducts !== undefined) {
+            return typeProduct.typeProducts
+        }
+        return typeProduct
+    }
+
+    const handleDataBrand = (ListBrannd) => {
+        if ( ListBrannd.ListBrannd !== undefined) {
+            return ListBrannd.ListBrannd
+        }
+        return ListBrannd
+    }
+
+
 
     return (
         <div style={{ position: 'relative' }}>
-            <Carousel />
 
-            <Catergory />
+            <Carousel />
+           
+            {typeProduct ? <Catergory typeProducts={handleDataType(typeProduct)}/> : ''}
+            
+
 
             {product && product.length > 0 ? (
+                
                 <ListProduct
-                    HotSaleProducts={handlePercentDiscount(product)}
-                    newProduct={true}
+                    HotSaleProducts={handlePercentDiscount(product.reverse().slice(0,12))}
                     title="Sản phẩm mới nhất"
                 />
             ) : (
                ''
             )}
 
-            <Brands />
+             {ListBrannd ? <Brands ListBrannd = {handleDataBrand(ListBrannd)}/> : '' } 
 
             {product && product.length > 0 ? (
-                <ListProduct HotSaleProducts={handlePercentDiscount(product)} discount={20} title="Giảm giá sốc" />
+                <ListProduct HotSaleProducts={handlePercentDiscount(product)} discount={30} title="Giảm giá sốc" />
             ) : (
                 ''
             )}

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { axiosClient } from '../../services/config.services'
 
 export const getAllTypeProduct = () => async (dispatch) => {
     try {
@@ -31,10 +32,13 @@ export const searchType = (type) => async (dispatch, getState) => {
     }
 }
 
-// export const descendingFilterProduct = (products) => async (dispatch, getState) => {
-//     dispatch({ type: 'DESCENDING_FILTERPRODUCT', payload: products })
-// }
+export const paginationTypeProduct = (page) => async (dispatch) => {
+    try {
+        const data = await axiosClient.get(`/typeList/pagination/${page}`)
+        dispatch({ type: 'PAGINATION_TYPE', payload: data })
+    } catch (error) {}
+}
 
-// export const ascendingFilterProduct = (products) => async (dispatch, getState) => {
-//     dispatch({ type: 'ASCENDING_FILTERPRODUCT', payload: products })
-// }
+export const editCurrentPage = (page) => async (dispatch) => {
+    dispatch({ type: 'EDIT_CURRENT_PAGE_TYPE', payload: page })
+}

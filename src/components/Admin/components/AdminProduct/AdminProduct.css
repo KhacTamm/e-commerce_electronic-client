@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 18px 0;
+    margin-bottom: 12px;
 }
 
 .admin-product_header_title {
@@ -88,7 +88,7 @@
 }
 
 .admin-product-list table td {
-    padding: 0.5rem 0;
+    padding: 12px 0;
     font-size: 16px;
 }
 
@@ -103,7 +103,9 @@
 }
 
 .admin-product-list table td img {
-    width: 120px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 
 .admin-product-list tr .delete-product,

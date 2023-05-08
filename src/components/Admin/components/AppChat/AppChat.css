@@ -64,6 +64,7 @@
 }
 .contact-list-item-content {
     margin-left: 1rem;
+    width: 70%;
 }
 .contact-list-item-name {
     font-size: 18px;
@@ -72,7 +73,17 @@
     text-align: left;
 }
 .contact-list-item-lastmessage {
-    overflow-y: hidden;
+
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    padding: 6px 0;
+
     color: #6b6b6b;
 }
 
@@ -111,7 +122,7 @@
     word-break: break-word;
 }
 .ad-chatuser-listmessage-message p {
-    padding: 8px;
+    padding: 8px 12px;
     background: #e4e6eb;
     max-width: 400px;
     margin-top: 0.2rem;
@@ -119,7 +130,9 @@
     text-align: left;
 }
 .ad-chatuser-listmessage-message.me {
+    /* margin: 12px 0; */
     justify-content: flex-end;
+
 }
 .ad-chatuser-listmessage-message.me p {
     /* background: #1890ff; */
@@ -149,4 +162,24 @@
     outline: none;
     padding: 0.5rem 1.5rem;
     cursor: pointer;
+}
+
+.ad-chatuser-typemessage button svg {
+    font-size: 2.8rem;
+}
+
+.btn-send {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 2rem;
+
+}
+
+.btn-send svg {
+    font-size: 2.4rem;
+}
+
+.btn-send span {
+    padding: 5px 0;
 }

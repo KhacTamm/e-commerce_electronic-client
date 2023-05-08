@@ -81,23 +81,25 @@
 
 .list_TypeProduct table th {
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 18px;
     font-weight: 600;
     background: var(--color-primary-background);
-    padding: 0.5rem 0;
+    padding: 11px 0;
     min-width: 30px;
     text-align: center;
 }
 
 .list_TypeProduct table td {
-    padding: 0.5rem 0;
-    font-size: 1.6rem;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    font-size: 16px;
     text-align: center;
 }
 
 .list_TypeProduct table td img {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
 }
 
 .list_TypeProduct tr .delete-product,

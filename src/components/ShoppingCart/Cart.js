@@ -14,7 +14,8 @@ import Product from './Product'
 function Cart() {
     const dispatch = useDispatch()
     const { cartItems } = useSelector((state) => state.cart)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     // const totalPrice = cartItems.reduce((total, item) => total + item.qty * item.salePrice, 0)
 

@@ -31,8 +31,11 @@ export default function CreateNewBrand() {
     }
 
     return (
+        <div className="admin-TypeProduct">
+        <div>
+            <p className="admin-product_header_title">Thêm thương hiệu</p>
         <div className="create-type">
-            <span>Thêm mới thương hiệu</span>
+            {/* <span>Thêm mới thương hiệu</span> */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register('name')} placeholder="Tên loại ... " autoComplete="off"></input>
 
@@ -40,6 +43,8 @@ export default function CreateNewBrand() {
 
                 <button type="submit">Thêm</button>
             </form>
+        </div>
+        </div>
         </div>
     )
 }

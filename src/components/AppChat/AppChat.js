@@ -18,7 +18,8 @@ function AppChat(props) {
     const ENDPOINT = 'http://localhost:4000'
     const [messages, setMessages] = useState([])
     const [openChat, setOpenChat] = useState(false)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     useEffect(() => {
         const getAllMessageByConversation = async () => {
@@ -96,7 +97,7 @@ function AppChat(props) {
             {openChat ? (
                 <div className="chatuser">
                     <div className="chatuser-user">
-                        <span className="chatuser-user-name">Ba-Te Shop</span>
+                        <span className="chatuser-user-name">Chat với nhân viên tư vấn</span>
                         <span className="chatuser-user-line" onClick={() => setOpenChat(!openChat)}>
                             <LineOutlined />
                         </span>

@@ -8,7 +8,8 @@ function MenuOrder(props) {
     const dispatch = useDispatch()
     const location = useLocation()
 
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     const { myOrders } = useSelector((state) => state.orderByUser)
     const { myOrdersPendding } = useSelector((state) => state.orderByUser)
     const { myOrdersShipping } = useSelector((state) => state.orderByUser)

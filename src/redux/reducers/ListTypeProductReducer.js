@@ -1,14 +1,20 @@
 const initialState = {
     typeProduct: [],
-    products: [],
     currentPage: 1,
 }
 
-export const ListTypeProductReducer = (state = {}, action) => {
+export const ListTypeProductReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_ALL_TYPE_PRODUCT': {
-            return { ...state, List: action.payload }
+            return { ...state, typeProduct: action.payload }
         }
+
+        case 'EDIT_CURRENT_PAGE_TYPE': {
+            return { ...state, currentPage: action.payload }
+        }
+
+        case 'PAGINATION_TYPE':
+            return { ...state, typeProduct: action.payload }
 
         default:
             return state
@@ -40,7 +46,7 @@ export const searchTypeReducer = (state = {}, action) => {
         case 'DESCENDING_FILTERPRODUCT': {
             let newList = [...action.payload]
             newList = newList.sort((a, b) => a.salePrice - b.salePrice)
-            console.log(state)
+            // console.log(state)
 
             return { ...state, products: newList }
         }
@@ -53,6 +59,8 @@ export const searchTypeReducer = (state = {}, action) => {
             return state
     }
 }
+
+
 
 // export const getAllTypeReducer = (state = {}, action) => {
 //     switch (action.type) {

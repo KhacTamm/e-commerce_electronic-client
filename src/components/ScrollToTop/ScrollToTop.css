@@ -2,6 +2,7 @@
     position: fixed;
     bottom: 60px;
     right: 30px;
+    z-index: 999;
 }
 .scrolltotop {
     background: var(--color-scrolltotop);

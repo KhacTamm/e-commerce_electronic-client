@@ -7,13 +7,8 @@ import './Brands.css'
 
 import BrandItem from './BrandItem'
 
-function Brands() {
-    const dispatch = useDispatch()
-    const { ListBrannd } = useSelector((state) => state.allBrandProduct)
-
-    useEffect(() => {
-        dispatch(getAllBrandProduct())
-    }, [dispatch])
+function Brands(props) {
+    const  {ListBrannd} = props
 
     return (
         <section className="marque-wrapper py-4">
@@ -21,7 +16,7 @@ function Brands() {
                 <div className="col-12">
                     <div className="marquee-inner-wrapper card-wrapper">
                         <Marquee className="d-flex align-items-center justify-content-between">
-                            {ListBrannd
+                            {ListBrannd 
                                 ? ListBrannd.map((brand, index) => <BrandItem items={brand} key={index}></BrandItem>)
                                 : ''}
                         </Marquee>

@@ -12,7 +12,8 @@ function Chat(props) {
     // const ENDPOINT = 'localhost:5000'
     const ENDPOINT = 'http://localhost:4000'
     const [messages, setMessages] = useState([])
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     const idConversation = useSelector((state) => state.chat.idConversation)
     const nameConversation = useSelector((state) => state.chat.nameConversation)
 

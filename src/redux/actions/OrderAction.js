@@ -9,7 +9,7 @@ let config = {
 export const createOrder = (order) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.post('http://localhost:4000/order/create', order, {
             headers: {
@@ -25,7 +25,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
 export const updateOrder = (orderId, order) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
 
         const { data } = await axios.post(`http://localhost:4000/order/update/${orderId}`, order, {
@@ -47,7 +47,7 @@ export const cancelOrder = (orderId) => async (dispatch, getState) => {
 export const getAllOrder = () => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/`, {
             headers: {
@@ -65,7 +65,7 @@ export const RemoveAllOrder = () => async (dispatch, getState) => {
 // export const GetAllOrderPaypal = () => async (dispatch, getState) => {
 //   try {
 //     const {
-//       userSignin: { userInfo },
+//       getUsers: { userInfo },
 //     } = getState();
 //     const { data } = await axios.get(`http://localhost:4000/order/orderPaypal`, {
 //       headers: {
@@ -80,7 +80,7 @@ export const RemoveAllOrder = () => async (dispatch, getState) => {
 export const GetAllOrderPendding = () => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderPendding`, {
             headers: {
@@ -94,7 +94,7 @@ export const GetAllOrderPendding = () => async (dispatch, getState) => {
 export const GetAllOrderShipping = () => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderShipping`, {
             headers: {
@@ -108,7 +108,7 @@ export const GetAllOrderShipping = () => async (dispatch, getState) => {
 export const GetAllOrderPaid = () => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderPaid`, {
             headers: {
@@ -122,7 +122,7 @@ export const GetAllOrderPaid = () => async (dispatch, getState) => {
 export const GetAllOrderCancel = () => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderCancel`, {
             headers: {
@@ -136,7 +136,7 @@ export const GetAllOrderCancel = () => async (dispatch, getState) => {
 export const deleteOrder = (orderId) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.put(`http://localhost:4000/order/delete/${orderId}`, {
             headers: {
@@ -150,7 +150,7 @@ export const deleteOrder = (orderId) => async (dispatch, getState) => {
 export const ShippingOrder = (orderId) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
 
         const { data } = await axios.put(`http://localhost:4000/order/shipping/${orderId}`, {
@@ -165,7 +165,7 @@ export const ShippingOrder = (orderId) => async (dispatch, getState) => {
 export const PaidOrder = (orderId) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
 
         const { data } = await axios.put(`http://localhost:4000/order/paid/${orderId}`, {
@@ -228,7 +228,7 @@ export const GetAllWard = (districtId) => async (dispatch, getState) => {
 export const getOrderByUser = (idUser) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/${idUser}`, {
             headers: {
@@ -242,7 +242,7 @@ export const getOrderByUser = (idUser) => async (dispatch, getState) => {
 export const getOrderPenddingByUser = (idUser) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderPendding/${idUser}`, {
             headers: {
@@ -256,7 +256,7 @@ export const getOrderPenddingByUser = (idUser) => async (dispatch, getState) => 
 export const getOrderShippingByUser = (idUser) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderShipping/${idUser}`, {
             headers: {
@@ -270,7 +270,7 @@ export const getOrderShippingByUser = (idUser) => async (dispatch, getState) => 
 export const getOrderPaidByUser = (idUser) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/order/orderPaid/${idUser}`, {
             headers: {
@@ -283,7 +283,7 @@ export const getOrderPaidByUser = (idUser) => async (dispatch, getState) => {
 
 export const payOrder = (order, paymentResult) => async (dispatch, getState) => {
     const {
-        userSignin: { userInfo },
+        getUsers: { userInfo },
     } = getState()
     try {
         const { data } = axios.put(`http://localhost:4000/order/pay/${order._id}`, paymentResult, {

@@ -179,7 +179,7 @@ export const getProductByIdReducer = (state = {}, action) => {
 export const searchProductReducer = (state = {}, action) => {
     switch (action.type) {
         case 'SEARCH_PRODUCT': {
-            console.log(state)
+            // console.log(state)
             return { ...state, products: action.payload }
         }
 

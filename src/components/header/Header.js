@@ -26,7 +26,7 @@ function Header() {
     const [showAccount, setShowAccount] = useState(false)
     const [showAccount2, setShowAccount2] = useState(false)
 
-    const userSignin = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
     const { userInfo, error } = userSignin
     const [search, setSearch] = useState('')
     const { quantity } = useSelector((state) => state.cart)

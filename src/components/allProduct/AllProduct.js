@@ -43,6 +43,7 @@ function AllProduct(props) {
                     <div className="col-10">
                         {product && product.length > 0 ? (
                             <ListProduct HotSaleProducts={handlePercentDiscount(product)} />
+                            
                         ) : (
                             <span>Không có sản phẩm</span>
                         )}

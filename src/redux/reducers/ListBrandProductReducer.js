@@ -9,9 +9,9 @@ export const ListBrandProductReducer = (state = initialState, action) => {
             return { ...state, ListBrannd: action.payload }
         }
         
-        // case 'EDIT_CURRENT_PAGE_BARND': {
-        //     return { ...state, currentPage: action.payload }
-        // }
+        case 'EDIT_CURRENT_PAGE_BARND': {
+            return { ...state, currentPage: action.payload }
+        }
 
         case 'PAGINATION_BRAND':
             return { ...state, ListBrannd: action.payload }

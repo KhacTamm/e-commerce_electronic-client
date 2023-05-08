@@ -12,7 +12,8 @@ import MyOrder from '../../MyOrder'
 function PenddingOrder(props) {
     const dispatch = useDispatch()
     const { myOrdersPendding } = useSelector((state) => state.orderByUser)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     const orderParent = (item) => (
         <div className="all-myorder-parent-item">

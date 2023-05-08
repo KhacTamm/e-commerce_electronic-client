@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AddToCart } from '../../redux/actions/CartAction'
 
 import { Rate } from 'antd'
+import { message } from 'antd'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { useState } from 'react'
 
@@ -16,9 +17,36 @@ function DetailInfo(props) {
     const dispatch = useDispatch()
     const history = useNavigate()
     const [qty, setQty] = useState(1)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
-    // var checkQty = false
+    const success = () => {
+        message.success({
+            content: 'Sản phẩm đã được thêm vào Giỏ hàng',
+            duration: 1,
+            className: 'custom-class',
+            style: {
+                position: 'absolute',
+                left: '35%',
+                top: '300px',
+                zIndex: '999',
+            },
+        })
+    }
+
+    const failure = () => {
+        message.error({
+            content: 'Số lượng bạn chọn đã đạt mức tối đa của sản phẩm này',
+            duration: 1,
+            className: 'custom-class',
+            style: {
+                position: 'absolute',
+                left: '35%',
+                top: '300px',
+                zIndex: '999',
+            },
+        })
+    }
 
     const handleAddToCart = async (product) => {
         if (userInfo) {
@@ -31,7 +59,6 @@ function DetailInfo(props) {
             const action = AddToCart(cartItem)
             await dispatch(action)
             history(`${config.routes.cart}`)
-            // success()
         } else {
             history(`${config.routes.login}`)
         }
@@ -46,6 +73,7 @@ function DetailInfo(props) {
             }
             const action = AddToCart(cartItem)
             await dispatch(action)
+            success()
         } else {
             history(`${config.routes.login}`)
         }
@@ -64,8 +92,10 @@ function DetailInfo(props) {
     }
 
     function handleNoDecreaseProduct(e) {
-        // console.log(checkQty)
+        if(qty > 1) {
 
+            failure() 
+        } 
         e.preventDefault()
     }
 
@@ -104,24 +134,23 @@ function DetailInfo(props) {
                     </div>
                 </div>
             </div>
-            {/* <div className="detail-description">
-                Thiết kế tinh giản hiện đại, bền bỉ chắc chắn Chất liệu khung nguyên khối và nhựa cứng Giải trí sắc nét,
-                sống động từng chi tiết Màn hình HD+ 6.52 inches Cấu hình ổn định trong phân khúc Chip Unisoc SC9863A,
-                RAM 3GB Bắt trọn khoảnh khắc - Camera kép 13MP chụp ảnh chi tiết, camera trước 5MP
-            </div> */}
             <div className=" detail-item">
                 <div className="detail-qty-addtocart">
-                    <ul className="button-add-cart">
-                        <li onClick={qty > 1 ? () => handleDecreaseProduct(product) : handleNoDecreaseProduct}>-</li>
-                        <li className="qty">{qty}</li>
-                        <li
-                            onClick={
-                                product.amount > qty ? () => handleIncreaseProduct(product) : handleNoDecreaseProduct
-                            }
-                        >
-                            +
-                        </li>
-                    </ul>
+                    <div className='detail-qty'>
+                        <ul className="button-add-cart">
+                            <li onClick={qty > 1 ? () => handleDecreaseProduct(product) : handleNoDecreaseProduct}>-</li>
+                            <li className="qty">{qty}</li>
+                            <li
+                                onClick={
+                                    product.amount > qty ? () => handleIncreaseProduct(product) : handleNoDecreaseProduct
+                                }
+                            >
+                                +
+                            </li>
+                        </ul>
+                        <div className='detail-qty_text'>{product.amount} sản phẩm có sẵn</div>
+                    </div>
+                    
                     <AiOutlineShoppingCart
                         onClick={(e) => {
                             AddProductCart(product)
@@ -138,18 +167,6 @@ function DetailInfo(props) {
                             <span>(Giao tận nơi hoặc lấy tại cửa hàng)</span>
                         </div>
                     </div>
-                    {/* <div className="detail-info-right-buy-installment">
-                    <a href="">
-                        <strong>TRẢ GÓP 0%</strong>
-                        <br></br>
-                        <span>(Xét duyệt qua điện thoại)</span>
-                    </a>
-                    <a href="">
-                        <strong>TRẢ GÓP QUA THẺ</strong>
-                        <br></br>
-                        <span>(Visa, Master, JCB)</span>
-                    </a>
-                </div> */}
                 </div>
             </div>
         </div>

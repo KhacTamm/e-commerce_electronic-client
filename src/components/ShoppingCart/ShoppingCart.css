@@ -307,6 +307,7 @@ ul .sl {
     color: #3c3d41;
     /* margin: 0 1rem; */
     cursor: pointer;
+    -webkit-user-select: none;
 }
 .button-event li:hover {
     background: #ddd;

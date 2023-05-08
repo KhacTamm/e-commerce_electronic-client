@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { SignoutUser } from '../../redux/actions/UserAction'
 
-import { BellOutlined, SearchOutlined } from '@ant-design/icons'
 import Sidebar from '../../components/Admin/components/sidebar/Sidebar'
 import './Admin.css'
 
 function AdminLayout({ children }) {
-    const userSignin = useSelector((state) => state.userSignin)
-    const { userInfo, error } = userSignin
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     const history = useNavigate()
 
     const dispatch = useDispatch()

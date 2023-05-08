@@ -13,7 +13,7 @@ export const AddToCart = (product) => async (dispatch, getState) => {
     // console.log(product)
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.post(`http://localhost:4000/cart/addCart/${userInfo}`, product, {
             headers: {
@@ -29,7 +29,7 @@ export const getAllCart = (idUser) => async (dispatch, getState) => {
     // console.log(idUser)
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.get(`http://localhost:4000/cart/${idUser}`, {
             headers: {
@@ -43,7 +43,7 @@ export const getAllCart = (idUser) => async (dispatch, getState) => {
 export const DeleteToCart = (product) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.delete(`http://localhost:4000/cart/delete/${product._id}/${product.idUser}`, {
             headers: {
@@ -59,7 +59,7 @@ export const DeleteToCart = (product) => async (dispatch, getState) => {
 export const DeleteAllToCart = (userID) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.delete(`http://localhost:4000/cart/delete/${userID}`, {
             headers: {
@@ -89,7 +89,7 @@ export const DecreaseQtyProduct = (IDproduct) => async (dispatch) => {
 export const IncreaseQtyProduct = (product) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.post(`http://localhost:4000/cart/addCart/${userInfo}`, product, {
             headers: {

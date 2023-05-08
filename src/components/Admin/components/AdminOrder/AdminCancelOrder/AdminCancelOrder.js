@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 
-import { formatPrice } from '../../../../../untils'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllOrderCancel } from '../../../../../redux/actions/OrderAction'
 
@@ -14,7 +12,6 @@ function AdminCancelOrder(props) {
     const dispatch = useDispatch()
     const { orderCancel } = useSelector((state) => state.allOrder)
 
-    console.log(orderCancel)
     useEffect(() => {
         dispatch(GetAllOrderCancel())
     }, [dispatch])
@@ -29,7 +26,6 @@ function AdminCancelOrder(props) {
                     <MenuOrder></MenuOrder>
                 </div>
             </div>
-            {/* <MenuOrder></MenuOrder> */}
             {orderCancel && orderCancel.length > 0 ? <ListOrder orders={orderCancel} /> : <EmptyOrder></EmptyOrder>}
         </div>
     )

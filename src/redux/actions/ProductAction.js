@@ -7,7 +7,7 @@ import { axiosClient } from '../../services/config.services'
 
 export const filterProductByType = (type) => async (dispatch) => {
     try {
-        console.log(type)
+        // console.log(type)
         const { data } = await axios.get(`${BASE_URL}/products/${type}`)
         dispatch({ type: 'FILTER_PRODUCT_BY_TYPE', payload: data })
     } catch (error) {
@@ -104,10 +104,12 @@ export const removeProductById = (id) => async (dispatch) => {
 }
 
 export const saveProduct = (product) => async (dispatch, getState) => {
+    
     console.log(product)
+
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         if (!product.get('_id')) {
             const { data } = await axios.post('http://localhost:4000/products/create', product, {
@@ -116,7 +118,6 @@ export const saveProduct = (product) => async (dispatch, getState) => {
                 },
             })
             dispatch({ type: 'SAVE_PRODUCT', payload: data })
-            // document.location.href = '/admin/product';
         } else {
             const { data } = await axios.put(`http://localhost:4000/products/update`, product, {
                 headers: {
@@ -124,7 +125,6 @@ export const saveProduct = (product) => async (dispatch, getState) => {
                 },
             })
             dispatch({ type: 'SAVE_PRODUCT', payload: data })
-            // document.location.href = '/admin/product';
         }
     } catch (error) {
         dispatch({ type: 'SAVE_PRODUCT_FAIL', payload: error.message })
@@ -134,7 +134,7 @@ export const saveProduct = (product) => async (dispatch, getState) => {
 export const DeleteProduct = (productId) => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.delete(`http://localhost:4000/products/delete/${productId}`, {
             headers: {
@@ -149,7 +149,7 @@ export const DeleteProduct = (productId) => async (dispatch, getState) => {
 export const DeleteAllProduct = () => async (dispatch, getState) => {
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.delete(`http://localhost:4000/products/delete/all`, {
             headers: {
@@ -166,7 +166,7 @@ export const HandlePaymentProduct = (product) => async (dispatch, getState) => {
     // console.log(product)
     try {
         const {
-            userSignin: { userInfo },
+            getUsers: { userInfo },
         } = getState()
         const { data } = await axios.put(`http://localhost:4000/products/handlepayment`, product, {
             headers: {
@@ -183,7 +183,7 @@ export const HandlePaymentProduct = (product) => async (dispatch, getState) => {
 // export const DeleteAllProduct = (productId) => async (dispatch, getState) => {
 //     try {
 //         const {
-//             userSignin: { userInfo },
+//             getUsers: { userInfo },
 //         } = getState()
 //         const { data } = await axios.delete(`http://localhost:4000/products/delete/${productId}`, {
 //             headers: {
@@ -250,7 +250,7 @@ export const pinCommentProduct = (id, comment) => async (dispatch, getState) => 
 
 export const BlogProduct = (id, blog, callback) => async (dispatch, getState) => {
     const {
-        userSignin: { userInfo },
+        getUsers: { userInfo },
     } = getState()
     try {
         const { data } = await axios.post(`http://localhost:4000/products/blog/${id}`, blog, {

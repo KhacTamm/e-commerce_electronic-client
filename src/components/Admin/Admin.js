@@ -8,7 +8,7 @@ import adminRoutes from './components/Routers'
 
 function Admin(props) {
     const userSignin = useSelector((state) => state.userSignin)
-    const { userInfo, error } = userSignin
+    const { userInfo } = userSignin
     const history = useNavigate()
 
     if (!userInfo || !userInfo.isAdmin) {
@@ -27,7 +27,7 @@ function Admin(props) {
                     // } else if (route.layout === null) {
                     //     Layout = Fragment
                     // }
-                    console.log(route)
+                    // console.log(route)
                     const Page = route.component
                     return (
                         <div className={`layout`}>

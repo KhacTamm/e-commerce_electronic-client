@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import config from '../../config'
 
 import { useDispatch } from 'react-redux'
-// import { SignupUser } from '../../actions/UserAction'
 import { SignupUser } from '../../redux/actions/UserAction'
 
 import './Signup.css'
@@ -19,7 +18,6 @@ function Login(props) {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm()
     const onSubmit = (data) => {
@@ -35,23 +33,23 @@ function Login(props) {
         <div className="signup-page">
             <h2>ĐĂNG KÝ</h2>
             <form onSubmit={handleSubmit(onSubmit)} classname="form-signup">
-                <input {...register('name')} placeholder="Name" required></input>
+                <input {...register('name')} placeholder="Tên tài khoản" required></input>
                 <input {...register('email')} placeholder="Email" type="email" required></input>
                 <input
                     {...register('password')}
-                    placeholder="Password"
+                    placeholder="Mật khẩu"
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 ></input>
                 <input
                     {...register('repeat password')}
-                    placeholder=" Repeat password"
+                    placeholder="Nhập lại mật khẩu"
                     type="password"
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 ></input>
-                <input type="submit" value="Đăng Kí"></input>
+                <input type="submit" value="Đăng Ký"></input>
             </form>
             <div className="toLogin">
                 <p>Bạn đã có tài khoản?</p>

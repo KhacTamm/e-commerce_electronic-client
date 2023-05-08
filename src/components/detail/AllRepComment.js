@@ -37,14 +37,6 @@ function AllRepComment(props) {
                             </div>
                         </p>
                     </div>
-
-                    {/* <div className="cmt_wrap">{repComment.content}</div>
-
-                    <div className="all-comment-more">
-                        <a className="all-comment-more-chat" onClick={() => showRepComment(id)}>
-                            <WechatOutlined style={{ color: '#e11b1e' }} /> <p> Trả lời</p>
-                        </a>
-                    </div> */}
                 </div>
             ))}
         </div>

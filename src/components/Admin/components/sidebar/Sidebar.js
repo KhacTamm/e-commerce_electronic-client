@@ -9,13 +9,11 @@ import {
     UsergroupAddOutlined,
     ShopOutlined,
     OrderedListOutlined,
-    WechatOutlined,
 } from '@ant-design/icons'
 import { BsChatDots } from 'react-icons/bs'
 
 import { SiBrandfolder } from 'react-icons/si'
 import { BsMenuButtonWide } from 'react-icons/bs'
-import images from '../../../../assets'
 
 function Sidebar(props) {
     const dispatch = useDispatch()

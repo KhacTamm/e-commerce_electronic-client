@@ -19,7 +19,8 @@ export default function Payment() {
     })
 
     const { order } = useSelector((state) => state.orderInfo)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     const payLater = () => {
         setChoosePay({ payOnline: false, payLater: true })
@@ -36,7 +37,7 @@ export default function Payment() {
             paymentMethod: 'payOnline',
             paymentResult: { ...paymentResult },
         }
-        await dispatch(createOrder(OrderPaid))
+        // await dispatch(createOrder(OrderPaid))
         history('/orderSuccess')
     }
 

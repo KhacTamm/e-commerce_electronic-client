@@ -9,7 +9,7 @@
 .order-content {
     max-width: 700px;
     width: 700px;
-    background: #eee;
+    background: rgba(255, 255, 255,0.9);
     margin-top: 1rem;
     border-radius: 4px;
     box-shadow: 0 0 6px var(--color-box-shadow);
@@ -17,14 +17,14 @@
 .order-page {
     max-width: 700px;
     width: 700px;
-    background: #eee;
+    /* background: #eee; */
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    padding: 20px 16px;
+    padding: 22px 18px;
 }
 .customer {
     width: 100%;
@@ -245,7 +245,54 @@ textarea {
     background-color: #ddd;
     transition: 0.3s;
 }
-@media screen and (max-width: 400px) {
+
+.myProduct,
+.receipt {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.myProduct_item {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+}
+
+.myProduct_item div {
+    display: flex;
+    align-items: center;
+}
+
+.myProduct_item-img {
+    width: 60px;
+    margin-right: 30px;
+}
+
+.myProduct_item-name {
+    width: 250px;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+
+.receipt-item {
+    width: 240px;
+    display: flex;
+    margin: 12px 0;
+    color: rgba(14, 14, 14, 0.8);
+    justify-content: space-between;
+}
+
+.receipt-warp {
+    padding-left: 0.5rem;
+}
+
+/* @media screen and (max-width: 400px) {
     #order {
         padding: 1rem;
     }
@@ -263,4 +310,4 @@ textarea {
     .order-page textarea {
         margin: 10px 0;
     }
-}
+} */

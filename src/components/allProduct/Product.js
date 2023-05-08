@@ -8,11 +8,12 @@ import { AddToCart } from '../../redux/actions/CartAction'
 
 import { message } from 'antd'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { Rate, Row, Col, Divider, Progress } from 'antd'
+import { Rate } from 'antd'
 
 function Product(props) {
     const { product } = props
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     const countReview = product.reviews.length
     let averageRate = (product.reviews.reduce((a, c) => a + c.star, 0) / countReview).toFixed(1)
     const { quantity } = useSelector((state) => state.cart)
@@ -23,14 +24,14 @@ function Product(props) {
 
     const success = () => {
         message.success({
-            content: 'Thêm vào giỏ hàng thành công',
+            content: 'Sản phẩm đã được thêm vào Giỏ hàng',
             duration: 1,
             className: 'custom-class',
             style: {
                 position: 'absolute',
-                right: '2rem',
-                top: '2rem',
-                margin: '1rem 0',
+                left: '43%',
+                top: '300px',
+                zIndex: '999',
             },
         })
     }
@@ -47,7 +48,6 @@ function Product(props) {
                 const action = AddToCart(cartItem)
                 await dispatch(action)
                 history(`${config.routes.cart}`)
-                success()
             } else {
                 history(`${config.routes.cart}`)
             }
@@ -67,7 +67,7 @@ function Product(props) {
 
                 const action = AddToCart(cartItem)
                 await dispatch(action)
-                success()
+                await success()
             } else {
                 e.preventDefault()
             }
@@ -120,6 +120,7 @@ function Product(props) {
                     >
                         Mua Ngay
                     </div>
+            
                 </div>
             </div>
         </div>

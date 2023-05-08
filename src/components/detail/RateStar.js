@@ -22,7 +22,8 @@ function RateStar(props) {
     const [showEvaluate, setShowEvalute] = useState(false)
     const [evaluate, setEvaluate] = useState('')
 
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     const product = useSelector((state) => state.getProductById.product)
 
     // console.log(product)

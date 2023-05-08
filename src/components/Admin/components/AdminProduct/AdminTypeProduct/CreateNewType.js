@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CreateNewTypeProduct, getAllTypeProduct } from '../../../../../redux/actions/ListTypeProductAction'
-
-import CreateInfoFilter from '../DataFilterProduct/CreateInfoFilter'
+import { editCurrentPage } from '../../../../../redux/actions/ListTypeProductAction'
 
 export default function CreateNewType() {
     const dispatch = useDispatch()
     const history = useNavigate()
     const { handleSubmit, register } = useForm()
     const [image, setImage] = useState('')
+    const { pages } = useSelector((state) => state.allTypeProduct.typeProduct)
 
     const onSubmit = async (data, e) => {
         e.preventDefault()
@@ -21,9 +21,13 @@ export default function CreateNewType() {
 
         e.target.reset()
         await dispatch(CreateNewTypeProduct(formData))
-        dispatch(getAllTypeProduct())
+        await dispatch(getAllTypeProduct())
+        // await dispatch(paginationTypeProduct(currentPage))
+        // await dispatch(editCurrentPage(pages))
         history('/admin/typeList')
     }
+
+    console.log(pages)
 
     const handleChangeImage = (e) => {
         setImage(e.target.files[0])
@@ -42,10 +46,6 @@ export default function CreateNewType() {
                         <button type="submit">Thêm</button>
                     </form>
                 </div>
-            </div>
-            <div className="update-filter">
-                <p className="admin-product_header_title">Thêm chi tiết loại sản phẩm</p>
-                <CreateInfoFilter />
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ import './NavProduct.css'
 function NavProduct() {
     const dispatch = useDispatch()
 
-    const { List } = useSelector((state) => state.allTypeProduct)
+    const { typeProduct } = useSelector((state) => state.allTypeProduct)
     const { ListBrannd } = useSelector((state) => state.allBrandProduct)
 
     useEffect(() => {
@@ -61,7 +61,7 @@ function NavProduct() {
             </div>
             <div className="navProduct_type">
                 <div className="navProduct_title">Danh mục</div>
-                <div className="navProduct_type">{List ? List.map((type, index) => NavTypeProductItems(type)) : ''}</div>
+                <div className="navProduct_type-item">{typeProduct ? typeProduct.map((type, index) => NavTypeProductItems(type)) : ''}</div>
             </div>
           
         </div>

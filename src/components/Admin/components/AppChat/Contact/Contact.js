@@ -1,11 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import {
-//     getAllConversationList,
-//     showConversation,
-//     updateIdConversation,
-//     updateLastMessageConversation,
-// } from '../../../../../actions/ChatAction'
 import {
     getAllConversationList,
     showConversation,
@@ -17,10 +11,10 @@ import io from 'socket.io-client'
 
 function Contact(props) {
     let socket
-    const ENDPOINT = 'localhost:5000'
+    const ENDPOINT = 'localhost:4000'
     const dispatch = useDispatch()
     const conversationList = useSelector((state) => state.chat.conversationList)
-    const idConversation = useSelector((state) => state.chat.idConversation)
+    // const idConversation = useSelector((state) => state.chat.idConversation)
 
     if (conversationList) {
     }

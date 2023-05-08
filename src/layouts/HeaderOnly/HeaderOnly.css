@@ -2,6 +2,17 @@
     position: relative;
 } */
 
+.headerOnly {
+    background-image: linear-gradient(to bottom, var(--color-primary-background), var(--color-primary-line-background));
+
+}
+
+.warp_subHeader {
+    box-shadow: 0 2px 8px rgba(0,0,0,.09);
+    
+    
+}
+
 .subHeader {
     display: flex;
     align-items: center;
@@ -17,12 +28,12 @@
 }
 
 .subHeader_logo img {
-    width: 80px;
+    width: 65px;
     margin-right: 6px;
 }
 
 .subHeader_logo h1 {
-    color: #000;
+    color: #fff;
     margin: 0;
     font-weight: 800;
     font-size: 3.2rem;
@@ -32,6 +43,7 @@
     position: relative;
     padding-left: 24px;
     font-size: 2.2rem;
+    color: #fff;
 }
 
 .titleType::before {
@@ -39,17 +51,17 @@
     position: absolute;
     height: 30px;
     /* border-left: 1px solid #000; */
-    border-right: 2px solid #000;
+    border-right: 2px solid #fff;
     left: 12px;
 }
 
 .headerOnly_wrap {
     position: relative;
-    height: 550px;
+    height: 585px;
     /* background-color: #000; */
     background-size: cover;
     background-position: top;
-    background-image: linear-gradient(to right bottom, var(--color-line-background), var(--color-primary-background));
+    /* background-image: linear-gradient(to right bottom, var(--color-line-background), var(--color-primary-background)); */
 }
 
 .headerOnly_cont {

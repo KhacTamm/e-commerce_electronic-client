@@ -161,11 +161,23 @@
     font-size: 1.6rem;
 } */
 
+.detail-qty {
+    display: flex;
+    align-items: center;
+}
+
 .detail-qty-addtocart {
     margin: 12px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.detail-qty_text {
+    font-size: 1.8rem;
+    margin-left: 12px;
+    margin-bottom: 12px;
+    color: rgb(117, 117, 117);
 }
 
 .detail-qty-addtocart .button-add-cart {
@@ -182,6 +194,7 @@
     text-align: center;
     color: #3c3d41;
     cursor: pointer;
+    -webkit-user-select: none;
 }
 
 .detail-qty-addtocart .button-add-cart .qty {

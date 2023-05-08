@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+
+import { formatPrice } from '../../untils'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllDistrict, GetAllProvince, GetAllWard, OrderInfo } from '../../redux/actions/OrderAction'
@@ -41,7 +42,8 @@ function Order(props) {
 
     const cartItems = useSelector((state) => state.cart.cartItems)
     const totalPrice = cartItems.reduce((total, item) => total + quantity * item.salePrice, 0)
-    const userInfo = useSelector((state) => state.userSignin.userInfo)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     const onSubmit = async (data) => {
         if (!data) {
@@ -103,7 +105,6 @@ function Order(props) {
                             <input placeholder="Số điện thoại" {...register('phone')} required></input>
                         </div>
                     </div>
-
                     <div className="address">
                         <h4>CHỌN ĐỊA CHỈ</h4>
                         <div className="address-form">
@@ -213,6 +214,39 @@ function Order(props) {
                                 <input placeholder="Số nhà, đường ..." {...register('more')} required></input>
                             </div>
                         </div>
+                    </div>
+                    <div className='myProduct'>
+                        <h4>SẢN PHẨM CỦA BẠN</h4>
+                        {cartItems ? cartItems.map((item) => (
+                            <div className='myProduct_item'>
+                                <div>
+                                    <img className='myProduct_item-img' src={item.image} alt="img"></img>
+                                    <div className='myProduct_item-name'>{item.name}</div>
+                                </div>
+                                <div>
+                                    <div className='myProduct_item-qty'>{item.qty} x</div>
+                                    <div className='myProduct_item-price'>&nbsp;{formatPrice(item.salePrice)}₫ = </div>
+                                    <b className='myProduct_item-price'>&nbsp;{formatPrice(item.salePrice * item.qty)}₫</b>
+                                </div>
+                            </div>
+                        )) : ''}
+                    </div>
+                    <div className='receipt'>
+                        <h4>THÀNH TIỀN</h4>
+                        <ul className='receipt-warp'>
+                            <li className='receipt-item'>
+                                <span>Tổng tiền hàng:</span>
+                                <span>{formatPrice(totalPrice)}₫</span>
+                            </li>
+                            <li className='receipt-item'>
+                                <span>Phí vận chuyển:</span>
+                                <span>{formatPrice(35000)}₫</span>
+                            </li>
+                            <li className='receipt-item'>
+                                <span>Tổng thanh toán:</span>
+                                <b>{formatPrice(totalPrice + 35000)}₫</b>
+                            </li>
+                        </ul>
                     </div>
                     <Payment></Payment>
                 </form>

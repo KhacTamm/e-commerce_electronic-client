@@ -33,9 +33,10 @@ function ShippingOrder(props) {
     const dispatch = useDispatch()
     const { myOrdersShipping } = useSelector((state) => state.orderByUser)
 
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
-    console.log(myOrdersShipping)
+    // console.log(myOrdersShipping)
 
     useEffect(() => {
         dispatch(getOrderShippingByUser(userInfo._id))

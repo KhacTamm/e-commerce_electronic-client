@@ -9,13 +9,14 @@ function ListUser(props) {
             <table>
                 <tr>
                     <th></th>
-                    <th>Name</th>
+                    <th>Họ tên khách hàng</th>
                     <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
                 </tr>
-                {users.map((item, index) => (
-                    <User user={item} number={index}></User>
+                {users.map((item, index) => ( 
+                    item.isAdmin === false ?     
+                    <User user={item} number={index}></User> : ''
                 ))}
             </table>
         </div>

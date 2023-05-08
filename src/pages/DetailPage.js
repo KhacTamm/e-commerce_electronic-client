@@ -5,11 +5,12 @@ import AppChat from '../components/AppChat/AppChat'
 import { useSelector } from 'react-redux'
 
 function DetailPage(props) {
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     return (
         <div>
             <Detail></Detail>
-            {userInfo ? <AppChat></AppChat> : ''}
+            {userInfo && userInfo.isAdmin === false ? <AppChat /> : ''}
             <ScrollToTop></ScrollToTop>
         </div>
     )

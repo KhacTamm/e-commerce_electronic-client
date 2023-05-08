@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import { getFirstCharacterUser } from '../../untils'
 
 import { useDispatch, useSelector } from 'react-redux'
-// import { pinCommentProduct, repCommentProduct } from '../../actions/ProductAction'
 import { pinCommentProduct, repCommentProduct } from '../../redux/actions/ProductAction'
 
 import { WechatOutlined, PushpinOutlined, LockOutlined } from '@ant-design/icons'
@@ -18,7 +17,8 @@ function AllComment(props) {
     const { allComment } = props
     const dispatch = useDispatch()
     const [repCmt, setRepCmt] = useState({ key: '', status: false })
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     const [repValue, setRepValue] = useState('')
     const showRepComment = (id) => {
         setRepCmt({ key: id, status: !repCmt.status })

@@ -19,13 +19,8 @@ function AdminOrder(props) {
                 </div>
             </div>
             <div className="order">
-                {/* <AdminOrderMenu></AdminOrderMenu> */}
                 <span>Orders</span>
                 <AdminOrderAll />
-
-                {/* <Routes>
-                    <Route path="/admin/order" exact component={AdminOrderAll}></Route>
-                </Routes> */}
             </div>
         </>
     )

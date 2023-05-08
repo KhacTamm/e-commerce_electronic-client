@@ -16,7 +16,7 @@ export const SignupUser = (user) => async (dispatch) => {
         const { data } = await axios.post('http://localhost:4000/user/register', user)
         localStorage.setItem('userInfo', JSON.stringify(data))
         dispatch({ type: 'USER_SIGNUP_SUCCESS', payload: data })
-        document.location.href = '/login'
+        // document.location.href = '/login'
     } catch (error) {}
 }
 
@@ -29,7 +29,7 @@ export const SignoutUser = (user) => async (dispatch) => {
 
 export const getAllUser = () => async (dispatch, getState) => {
     const {
-        userSignin: { userInfo },
+        getUsers: { userInfo },
     } = getState()
     try {
         const { data } = await axios.get('http://localhost:4000/user')
@@ -41,9 +41,9 @@ export const getAllUser = () => async (dispatch, getState) => {
 
 export const updateUser = (user) => async (dispatch, getState) => {
     
-    console.log(user)
+    // console.log(user)
     const {
-        userSignin: { userInfo },
+        getUsers: { userInfo },
     } = getState()
     try {
         const { data } = await axios.put(`http://localhost:4000/user/update/${userInfo._id}`, user, {
@@ -58,7 +58,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
 }
 export const deleteUser = (userId) => async (dispatch, getState) => {
     const {
-        userSignin: { userInfo },
+        getUsers: { userInfo },
     } = getState()
     try {
         const { data } = await axios.delete(`http://localhost:4000/user/delete/${userId}`)

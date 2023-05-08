@@ -15,7 +15,8 @@ function CommentProduct(props) {
     const dispatch = useDispatch()
     const [value, setValue] = useState('')
     const allComment = useSelector((state) => state.getProductById.product.comments)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     const Comment = () => {
         if (userInfo) {

@@ -53,7 +53,6 @@ export default function CreateInfoFilter() {
 
     return (
         <div className="update-filter-info">
-            {/* <span>Create select product</span> */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register('name')} placeholder="Name ... " />
                 <input {...register('property')} placeholder="Property ..." />

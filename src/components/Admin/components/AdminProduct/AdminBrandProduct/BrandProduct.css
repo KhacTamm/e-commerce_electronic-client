@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 18px 0;
+    margin-bottom: 12px;
 }
 
 .admin-TypeProduct_header_title {
@@ -81,7 +81,7 @@
     padding: 1rem;
 }
 
-.list_TypeProduct table th {
+/* .list_TypeProduct table th {
     color: #fff;
     font-size: 1.8rem;
     font-weight: 600;
@@ -89,17 +89,14 @@
     padding: 0.5rem 0;
     min-width: 30px;
     text-align: center;
-}
+} */
 
 .list_TypeProduct table td {
-    padding: 0.5rem 0;
-    font-size: 1.6rem;
-    text-align: center;
-}
+    padding-top: 10px;
+    padding-bottom: 6px;
 
-.list_TypeProduct table td img {
-    width: 80px;
-    height: 80px;
+    font-size: 16px;
+    text-align: center;
 }
 
 .list_TypeProduct tr .delete-product,

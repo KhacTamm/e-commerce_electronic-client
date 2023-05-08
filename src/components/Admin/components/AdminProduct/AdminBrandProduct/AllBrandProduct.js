@@ -3,55 +3,30 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import config from '../../../../../config'
 
-import { formatDate } from '../../../../../untils'
-
-import { editCurrentPage } from '../../../../../redux/actions/ProductAction'
 import { paginationBrandProduct } from '../../../../../redux/actions/ListBrandProductAction'
-import { deleteBrandProduct, getAllBrandProduct } from '../../../../../redux/actions/ListBrandProductAction'
 
 import './BrandProduct.css'
-import { DeleteOutlined, EditOutlined, FormOutlined } from '@ant-design/icons'
-import { Pagination } from 'antd'
 import { AiOutlinePlus } from 'react-icons/ai'
 
 import Empty from '../Empty/Empty'
+import ListBrandProduct from './ListBrandProduct'
 
 export default function AllBrandProduct() {
     const dispatch = useDispatch()
     const { ListBrannd } = useSelector((state) => state.allBrandProduct)
     const { currentPage } = useSelector((state) => state.allBrandProduct.currentPage)
-    const { pages } = useSelector((state) => state.allBrandProduct.ListBrannd)
-
-    console.log(currentPage)
-    console.log(useSelector((state) => state.allBrandProduct))
 
     useEffect(() => {
-        dispatch(getAllBrandProduct())
-    }, [dispatch])
+        dispatch(paginationBrandProduct(currentPage))
+    }, [dispatch, currentPage])
 
-    const handleRemoveItem = async (item) => {
-        await dispatch(deleteBrandProduct(item))
-        dispatch(getAllBrandProduct())
+    const handleDataBrand = (ListBrannd) => {
+        if ( ListBrannd.ListBrannd !== undefined) {
+            return ListBrannd.ListBrannd
+        }
+        return ListBrannd
     }
 
-    const HandleChangePage = async (number) => {
-        await dispatch(paginationBrandProduct(number))
-        dispatch(editCurrentPage(number))
-    }
-
-    const MenuFirmProduct = (firmItem, index) => (
-        <tr>
-            <td>{index + 1}</td>
-            <td>
-                <img className="img-typeProduct" src={firmItem.img} />
-            </td>
-            <td>{firmItem.name}</td>
-            <td>{formatDate(firmItem.createdAt)}</td>
-            <td className="delete-product" onClick={(e) => handleRemoveItem(firmItem)}>
-                <DeleteOutlined />
-            </td>
-        </tr>
-    )
 
     return (
         <>
@@ -65,26 +40,8 @@ export default function AllBrandProduct() {
                         </Link>
                     </div>
                 </div>
-                {ListBrannd ? (
-                    <div className="list_TypeProduct ">
-                        <table>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Hình ảnh</th>
-                                <th scope="col">Tên sản phẩm</th>
-                                <th scope="col">Ngày lập</th>
-                            </tr>
-                            {ListBrannd.map((item, index) => MenuFirmProduct(item, index))}
-                        </table>
-                        <div className="pagination">
-                            <Pagination
-                                defaultCurrent={1}
-                                current={currentPage}
-                                total={pages * 10}
-                                onChange={HandleChangePage}
-                            />
-                        </div>
-                    </div>
+                { handleDataBrand(ListBrannd) ? (
+                    <ListBrandProduct listProducts={handleDataBrand(ListBrannd)}></ListBrandProduct>
                 ) : (
                     <Empty path={`${config.routes.createBrand}`} lable="thương hiệu" />
                 )}

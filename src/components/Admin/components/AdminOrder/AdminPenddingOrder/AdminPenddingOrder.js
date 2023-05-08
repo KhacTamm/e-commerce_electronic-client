@@ -1,17 +1,13 @@
 import React, { useEffect } from 'react'
 
-import { formatPrice } from '../../../../../untils'
-
 import { useDispatch, useSelector } from 'react-redux'
-// import { cancelOrder, getOrderPenddingByUser } from '../../../../redux/actions/OrderAction'
 import { cancelOrder, GetAllOrderPendding } from '../../../../../redux/actions/OrderAction'
 
 import './AdminPenddingOrder.css'
 import ListOrder from '../AdminOrderUI/ListOrder'
 import MenuOrder from '../MenuOrder/MenuOrder'
 import EmptyOrder from '../EmptyOrder/EmptyOrder'
-// import EmptyOrder from '../AllOrder/EmptyOrder'
-// import MyOrder from '../../MyOrder'
+
 
 function AdminPenddingOrder(props) {
     const dispatch = useDispatch()

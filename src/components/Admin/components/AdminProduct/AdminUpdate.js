@@ -4,10 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { getproductById, removeProductById, saveProduct } from '../../../../redux/actions/ProductAction'
-import { getAllSelectList } from '../../../../redux/actions/SelectListAction'
 import { getAllBrandProduct } from '../../../../redux/actions/ListBrandProductAction'
 
-function AdminUpdate(props) {
+function AdminUpdate() {
     const { register, handleSubmit } = useForm()
     const { id } = useParams()
     const dispatch = useDispatch()
@@ -17,7 +16,7 @@ function AdminUpdate(props) {
     const detailProduct = useSelector((state) => state.getProductById.product)
     const [activeTypeProduct, setActiveTypeproduct] = useState(undefined)
     const [activeBrandProduct, setActiveBrandProduct] = useState(undefined)
-    const { List } = useSelector((state) => state.allTypeProduct)
+    const { typeProduct } = useSelector((state) => state.allTypeProduct)
     const { ListBrannd } = useSelector((state) => state.allBrandProduct)
 
     useEffect(() => {
@@ -28,13 +27,13 @@ function AdminUpdate(props) {
         }
     }, [dispatch, id])
 
-    useEffect(() => {
-        dispatch(getAllSelectList())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getAllSelectList())
+    // }, [])
 
-    useEffect(() => {
-        dispatch(getAllSelectList())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getAllSelectList())
+    // }, [])
 
     useEffect(() => {
         dispatch(getAllBrandProduct())
@@ -87,7 +86,7 @@ function AdminUpdate(props) {
             }
             onClick={() => HandleFilterProductByType(item.name)}
         >
-            <img src={item.img}></img>
+            <img alt='img' src={item.img}></img>
         </div>
     )
 
@@ -104,7 +103,7 @@ function AdminUpdate(props) {
             }
             onClick={() => HandleFilterProductByBrand(item.name)}
         >
-            <img className="img_brand" src={item.img}></img>
+            <img alt='img' className="img_brand" src={item.img}></img>
         </div>
     )
 
@@ -115,14 +114,27 @@ function AdminUpdate(props) {
     const HandleFilterProductByBrand = (name) => {
         setActiveBrandProduct(name)
     }
+
+    const handleDataType = (typeProduct) => {
+        if ( typeProduct.typeProducts !== undefined) {
+            return typeProduct.typeProducts
+        }
+        return typeProduct
+    }
+
+    const handleDataBrand = (ListBrannd) => {
+        if ( ListBrannd.ListBrannd !== undefined) {
+            return ListBrannd.ListBrannd
+        }
+        return ListBrannd
+    }
     return (
         <div className="admin-create">
-            <span>Update Product</span>
+            <span>Cập nhật sản phẩm</span>
             {detailProduct ? (
                 <form className="admin-create-product" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-                    {/* <div className="filter-menu-firm">{List ? List.map((item) => MenuFirmProduct(item)) : ''}</div> */}
                     <div className="filter-menu-firm">
-                        {ListBrannd ? ListBrannd.map((item) => MenuFirmProductBrand(item)) : ''}
+                        {ListBrannd ? handleDataBrand(ListBrannd).map((item) => MenuFirmProductBrand(item)) : ''}
                     </div>
                     <input {...register('name')} placeholder="Nhập tên sản phẩm" defaultValue={detailProduct.name}></input>
                     <input
@@ -143,7 +155,7 @@ function AdminUpdate(props) {
                         type="number"
                         defaultValue={detailProduct.salePrice !== 'undefined' ? detailProduct.salePrice : ''}
                     ></input>
-                    <div className="filter-menu-firm">{List ? List.map((item) => MenuFirmProduct(item)) : ''}</div>
+                    <div className="filter-menu-firm">{typeProduct ? handleDataType(typeProduct).map((item) => MenuFirmProduct(item)) : ''}</div>
                     <input
                         {...register('card')}
                         placeholder="Loại card đồ họa"

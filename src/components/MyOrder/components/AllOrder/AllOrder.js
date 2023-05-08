@@ -38,7 +38,8 @@ function AllOrder(props) {
     const dispatch = useDispatch()
     const { myOrders } = useSelector((state) => state.orderByUser)
 
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
     useEffect(() => {
         dispatch(getOrderByUser(userInfo._id))
     }, [])

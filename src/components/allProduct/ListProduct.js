@@ -2,13 +2,7 @@ import React from 'react'
 import Product from './Product'
 
 function ListProduct(props) {
-    const { HotSaleProducts, discount, title, newProduct } = props
-
-    const handleNewProduct = (() => {
-        if (newProduct) {
-            HotSaleProducts.reverse()
-        }
-    })()
+    const { HotSaleProducts, discount, title } = props
 
     return (
         <div className="listproduct row">

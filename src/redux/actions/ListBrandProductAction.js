@@ -24,10 +24,13 @@ export const deleteBrandProduct = (type) => async (dispatch) => {
 
 export const paginationBrandProduct = (page) => async (dispatch) => {
     try {
-        console.log(page)
         const data = await axiosClient.get(`/brandList/pagination/${page}`)
         dispatch({ type: 'PAGINATION_BRAND', payload: data })
     } catch (error) {}
+}
+
+export const editCurrentPage = (page) => async (dispatch) => {
+    dispatch({ type: 'EDIT_CURRENT_PAGE_BARND', payload: page })
 }
 
 // export const descendingFilterProduct = (products) => async (dispatch, getState) => {

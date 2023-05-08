@@ -1,38 +1,39 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { editCurrentPage, paginationTypeProduct } from '../../../../../redux/actions/ListTypeProductAction'
+import { editCurrentPage, paginationBrandProduct } from '../../../../../redux/actions/ListBrandProductAction'
+
 import { formatDate } from '../../../../../untils'
-import { deleteTypeProduct, getAllTypeProduct } from '../../../../../redux/actions/ListTypeProductAction'
-import { DeleteOutlined } from '@ant-design/icons'
+import { DeleteOutlined  } from '@ant-design/icons'
+import { deleteBrandProduct, getAllBrandProduct } from '../../../../../redux/actions/ListBrandProductAction'
+
 
 import { Pagination } from 'antd'
-import './TypeProduct.css'
+import './BrandProduct.css'
 
-function ListTypeProduct(props) {
+function ListBrandProduct(props) {
     const dispatch = useDispatch()
-    const { listTypes } = props
-    const currentPage = useSelector((state) => state.allTypeProduct.currentPage)
-    const { pages } = useSelector((state) => state.allTypeProduct.typeProduct)
+    const { listProducts } = props
+    const  currentPage  = useSelector((state) => state.allBrandProduct.currentPage)
+    const { pages } = useSelector((state) => state.allBrandProduct.ListBrannd)
 
-    const handleRemoveItem = async (item) => {
-        await dispatch(deleteTypeProduct(item))
-        await dispatch(getAllTypeProduct())
-        await dispatch(paginationTypeProduct(currentPage))
-    }
-
-    // console.log(currentPage)
-    // console.log(useSelector((state) => state.allTypeProduct.currentPage))
+    // console.log(listProducts)
 
     const HandleChangePage = async (number) => {
-        await dispatch(paginationTypeProduct(number))
+        await dispatch(paginationBrandProduct(number))
         dispatch(editCurrentPage(number))
+    }
+
+    const handleRemoveItem = async (item) => {
+        await dispatch(deleteBrandProduct(item))
+        await dispatch(getAllBrandProduct())
+        await dispatch(paginationBrandProduct(currentPage))
     }
 
     const MenuFirmProduct = (firmItem, index) => (
         <tr>
             <td>{index + 1}</td>
             <td>
-            <img alt='img' className="img-typeProduct" src={firmItem.img} />
+                <img className="img-typeProduct" src={firmItem.img} />
             </td>
             <td>{firmItem.name}</td>
             <td>{formatDate(firmItem.createdAt)}</td>
@@ -41,6 +42,7 @@ function ListTypeProduct(props) {
             </td>
         </tr>
     )
+
 
     return (
         <div className="list_TypeProduct ">
@@ -51,7 +53,7 @@ function ListTypeProduct(props) {
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Ngày lập</th>
             </tr>
-            {listTypes.map((item, index) => MenuFirmProduct(item, index))}
+            {listProducts.map((item, index) => MenuFirmProduct(item, index))}
         </table>
         <div className="pagination">
             <Pagination
@@ -65,4 +67,4 @@ function ListTypeProduct(props) {
     )
 }
 
-export default ListTypeProduct
+export default ListBrandProduct

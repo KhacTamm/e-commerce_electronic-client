@@ -1,17 +1,22 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { getAllUserReducer, UserSigninReducer, UserSignupReducer } from './reducers/UserReducer'
+// import {
+//     getAllProductReducer,
+//     getProductByIdReducer,
+//     searchProductReducer,
+//     getProductByTypeReducer,
+//     getFilterProductReducer,
+//     paginationProductReducer,
+//     ascendingProductReducer,
+//     descendingProductReducer,
+//     reviewProductReducer,
+//     getAllTypeReducer,
+// } from './reducers/ProductReducer'
 import {
-    getAllProductReducer,
-    getProductByIdReducer,
-    searchProductReducer,
-    getProductByTypeReducer,
-    getFilterProductReducer,
-    paginationProductReducer,
-    ascendingProductReducer,
-    descendingProductReducer,
-    reviewProductReducer,
-    getAllTypeReducer,
+        getAllProductReducer,
+        getProductByIdReducer,
+        searchProductReducer,
 } from './reducers/ProductReducer'
 
 import { CartReducer } from './reducers/CartReducer'
@@ -23,36 +28,25 @@ import {
     orderPayReducer,
 } from './reducers/OrderReducer'
 import { ChatReducer } from './reducers/ChatReducer'
-import { SelectListReducer, UpdateSelectListReducer } from './reducers/SelectListReducer'
+// import { SelectListReducer, UpdateSelectListReducer } from './reducers/SelectListReducer'
 import { ListTypeProductReducer, TypeProductReducer, searchTypeReducer } from './reducers/ListTypeProductReducer'
 import { ListBrandProductReducer, BrandProductReducer, searchBrandReducer } from './reducers/ListBrandProductReducer'
 import { InfoGhnReducer } from './reducers/GhnReducer'
-// import { searchTypeReducer } from './actions/ListTypeProductAction'
 
 const userInfoFromaLocalStorage = localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
     : undefined
 
-// const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 
 const initialState = {
     userSignin: {
-        // userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : undefined,
         userInfo: userInfoFromaLocalStorage,
     },
-    // cart: {
-    //     // cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
-    //     cartItems: cartItems,
-    // },
-
-    //   shippingAddress: localStorage.getItem('shippingAddress')
-    //   ? JSON.parse(localStorage.getItem('shippingAddress'))
-    //   : {},
 }
 
 const reducer = combineReducers({
-    users: getAllUserReducer,
-    userSignin: UserSigninReducer,
+    getUsers: getAllUserReducer,
+    // userSignin: UserSigninReducer,
     userSignup: UserSignupReducer,
 
     allProduct: getAllProductReducer,
@@ -83,8 +77,8 @@ const reducer = combineReducers({
 
     chat: ChatReducer,
 
-    selectList: SelectListReducer,
-    updateSelect: UpdateSelectListReducer,
+    // selectList: SelectListReducer,
+    // updateSelect: UpdateSelectListReducer,
 
     // allTypeProduct: ListTypeProductReducer,
     // detailType: TypeProductReducer,

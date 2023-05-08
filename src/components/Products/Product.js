@@ -14,14 +14,14 @@ function Product(props) {
 
     const success = () => {
         message.success({
-            content: 'Thêm vào giỏ hàng thành công',
+            content: 'Sản phẩm đã được thêm vào Giỏ hàng',
             duration: 1,
             className: 'custom-class',
             style: {
                 position: 'absolute',
-                right: '2rem',
-                top: '2rem',
-                margin: '1rem 0',
+                left: '43%',
+                top: '300px',
+                zIndex: '999',
             },
         })
     }
@@ -29,7 +29,7 @@ function Product(props) {
     const AddProductToCart = async (product) => {
         const action = AddToCart(product)
         await dispatch(action)
-        success()
+        await success()
     }
 
     return (

@@ -33,7 +33,8 @@ function PaidOrder(props) {
     const dispatch = useDispatch()
 
     const { myOrdersPaid } = useSelector((state) => state.orderByUser)
-    const { userInfo } = useSelector((state) => state.userSignin)
+    const userSignin = useSelector((state) => state.getUsers)
+    const { userInfo } = userSignin
 
     useEffect(() => {
         dispatch(getOrderPaidByUser(userInfo._id))

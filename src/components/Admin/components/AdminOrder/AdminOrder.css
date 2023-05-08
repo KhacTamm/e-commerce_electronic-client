@@ -30,7 +30,7 @@
     display: flex;
     flex-grow: 1;
     align-items: center;
-    padding-bottom: 1rem;
+    padding: 12px;
 }
 .order-items-item .img,
 .order-items-item .qty,
@@ -55,7 +55,7 @@
 }
 
 .order-list-items img {
-    width: 180px;
+    width: 100px;
     /* height: 100px; */
 }
 

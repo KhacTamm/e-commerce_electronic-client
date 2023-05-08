@@ -13,7 +13,7 @@ import Empty from './Empty/Empty'
 
 function AdminProduct() {
     const dispatch = useDispatch()
-    const currentPage = useSelector((state) => state.allProduct.currentPage)
+    const {currentPage} = useSelector((state) => state.allProduct)
     const { products } = useSelector((state) => state.allProduct.product)
 
     useEffect(() => {
@@ -35,6 +35,7 @@ function AdminProduct() {
 
                 {products ? (
                     <ListProduct listProducts={products} />
+                    
                 ) : (
                     <Empty path={`${config.routes.create}`} lable="sản phẩm" />
                 )}

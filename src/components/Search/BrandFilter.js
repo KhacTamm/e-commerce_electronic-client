@@ -10,7 +10,7 @@ function BrandFilter() {
     const searchBrand = useSelector((state) => state.searchBrand)
     const { products } = searchBrand
 
-    console.log(searchBrand)
+    // console.log(searchBrand)
 
     return (
         <section id="hotsale iphone">

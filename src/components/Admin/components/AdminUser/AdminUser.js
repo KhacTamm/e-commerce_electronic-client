@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllUser } from '../../../../redux/actions/UserAction'
@@ -10,7 +9,7 @@ import ListUser from './ListUser'
 
 function AdminUser(props) {
     const dispatch = useDispatch()
-    const users = useSelector((state) => state.users.user)
+    const users = useSelector((state) => state.getUsers.user)
 
     useEffect(() => {
         dispatch(getAllUser())
@@ -21,14 +20,8 @@ function AdminUser(props) {
                 <div className="dashboard-top-search">
                     <p className="admin-TypeProduct_header_title">Quản lý khách hàng</p>
                 </div>
-                {/* <div className="dashboard-top-content">
-                    <li className="dashboard-top-content-avatar">
-                        <Link to="/">Quay lại trang chủ</Link>
-                    </li>
-                </div> */}
             </div>
             <div className="admin-user">
-                {/* <span>Khách hàng</span> */}
                 {users ? <ListUser users={users}></ListUser> : <h2> Loading</h2>}
             </div>
         </>

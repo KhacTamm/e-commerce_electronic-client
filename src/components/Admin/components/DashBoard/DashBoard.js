@@ -1,47 +1,19 @@
-// import { Link } from 'react-router-dom'
-// import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
 import {
-    BellOutlined,
-    SearchOutlined,
     ShoppingCartOutlined,
     ShoppingOutlined,
     DollarCircleOutlined,
     FileTextOutlined,
 } from '@ant-design/icons'
-// import { SignoutUser } from '../../../../actions/UserAction'
 import './DashBoard.css'
 import ChartDashBoard from './ChartDashBoard'
 
 export default function DashBoard() {
-    // const dispatch = useDispatch()
 
-    // const handleSignout = () => {
-    //     dispatch(SignoutUser())
-    // }
 
     return (
         <section id="dashboard">
             <div className="dashboard">
-                {/* <div className="dashboard-top">
-                    <div className="dashboard-top-search">
-                        <form>
-                            <input placeholder="Search ..."></input>
-                            <span>
-                                <SearchOutlined></SearchOutlined>
-                            </span>
-                        </form>
-                    </div>
-                    <div className="dashboard-top-content">
-                        <li className="dashboard-top-content-avatar">
-                            <Link onClick={() => handleSignout()}>Đăng xuất</Link>
-                        </li>
-                        <li className="dashboard-top-content-bell">
-                            <BellOutlined></BellOutlined>
-                        </li>
-                    </div>
-                </div> */}
-
                 <div className="dashboard-middle">
                     <div className="dashboard-middle-statistic">
                         <div className="dashboard-middle-statistic-content">

@@ -5,13 +5,16 @@ import '../HeaderOnly.css'
 
 function Header({ title }) {
     return (
-        <div className="subHeader">
-            <Link to="/" className="subHeader_logo">
-                <img src={images.logo} alt="logo" />
-                <h1>BA-TÊ SHOP</h1>
-            </Link>
-            <div className="titleType">{title}</div>
+        <div className='warp_subHeader'>
+            <div className="subHeader">
+                <Link to="/" className="subHeader_logo">
+                    <img src={images.logo} alt="logo" />
+                    <h1>BA-TÊ SHOP</h1>
+                </Link>
+                <div className="titleType">{title}</div>
+            </div>
         </div>
+        
     )
 }
 

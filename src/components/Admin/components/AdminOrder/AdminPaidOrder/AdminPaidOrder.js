@@ -4,8 +4,6 @@ import { formatPrice } from '../../../../../untils'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllOrderPaid } from '../../../../../redux/actions/OrderAction'
-// import EmptyOrder from '../AllOrder/EmptyOrder'
-// import MyOrder from '../../MyOrder'
 import ListOrder from '../AdminOrderUI/ListOrder'
 import MenuOrder from '../MenuOrder/MenuOrder'
 import EmptyOrder from '../EmptyOrder/EmptyOrder'
