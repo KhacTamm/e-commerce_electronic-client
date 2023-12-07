@@ -1,0 +1,111 @@
+#myorder {
+}
+.myorder {
+    /* height: 100%; */
+    padding: 1rem 0;
+
+}
+.myorder-menu {
+    display: flex;
+    flex-wrap: wrap;
+        margin-bottom: 12px;
+    /* position: fixed; */
+    /* 
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 200px;
+    z-index: 9999;
+    background: #fff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px; */
+    /* background: white;
+    box-shadow: 0 0 12px var(--color-box-shadow); */
+}
+.myorder-menu-item {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.6rem;
+    margin-right: 24px;
+    padding: 12px 6px;
+    background: white;
+    border: 1px solid var(--color-primary-background);
+    border-radius: 20px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myorder-menu-item.active {
+    background: var(--color-primary-background);
+    font-weight: 700;
+}
+
+.myorder-menu-item a {
+    padding: 12px;
+    color: var(--color-primary-background);
+    display: block;
+}
+.myorder-menu-item.active a {
+    color: white;
+}
+.myorder-menu-item:hover {
+    background: var(--color-primary-background);
+    transition: 0.3s;
+}
+.myorder-menu-item:hover a {
+    color: white;
+    transition: 0.3s;
+}
+
+.myorder-menu-item-newPendding,
+.myorder-menu-item-newShipping {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: var(--color-second-background);
+    color: white;
+
+    text-align: center;
+    line-height: 30px;
+}
+
+/* ------------------------------Empty------------------------------- */
+
+.emptyOrder {
+    margin: 24px 0;
+    padding: 31px;
+    text-align: center;
+}
+
+.emptyOrder img {
+    width: 300px;
+}
+
+.emptyOrder .emptyOrder_text {
+    padding: 24px;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 500px) {
+    .myorder {
+        width: 100%;
+    }
+    .myorder-content {
+        padding: 0 1rem;
+    }
+    .myorder-menu-item {
+        margin: 0.5rem 1%;
+        width: 48%;
+    }
+}

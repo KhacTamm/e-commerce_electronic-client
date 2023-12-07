@@ -1,0 +1,30 @@
+.emptyCart {
+    margin: 80px;
+    text-align: center;
+}
+
+.imgEmptyCart {
+    width: 280px;
+}
+
+.empty__note {
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.empty__btn {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 55px;
+    display: inline-block;
+    border-radius: 6px;
+    align-items: center;
+    background: linear-gradient(#f52f32, #e11b1e);
+}
+
+.empty__btn:hover {
+    background-color: var(--color-text-active);
+    color: #fff;
+}

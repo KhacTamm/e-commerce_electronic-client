@@ -1,0 +1,142 @@
+.admin-TypeProduct {
+    margin: 12px;
+}
+
+.admin-TypeProduct_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.admin-TypeProduct_header_title {
+    padding: 1rem 0;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+
+.admin-TypeProduct_header span {
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+
+.admin-createType-link .add-createType {
+    display: flex;
+    background-color: var(--admin-create);
+    padding: 8px;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* .admin-product-link {
+    display: flex;
+} */
+
+.admin-createType-link svg {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.admin-TypeProduct .add-createType span {
+    font-size: 35px;
+}
+
+.admin-TypeProduct .add-createType span:hover {
+    /* color: #1890ff; */
+    color: var(--color-primary-background);
+    transition: 0.3s;
+}
+
+.admin-createType-link {
+    display: flex;
+}
+
+.admin-TypeProduct span {
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+
+.list_TypeProduct {
+    background: white;
+    /* margin: 0 0.5rem 0 1rem; */
+    color: #6b6b6b;
+    padding: 1rem;
+
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.list_TypeProduct table {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+}
+
+/* .list_TypeProduct table th {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: var(--color-primary-background);
+    padding: 0.5rem 0;
+    min-width: 30px;
+    text-align: center;
+} */
+
+.list_TypeProduct table td {
+    padding-top: 10px;
+    padding-bottom: 6px;
+
+    font-size: 16px;
+    text-align: center;
+}
+
+.list_TypeProduct tr .delete-product,
+.list_TypeProduct tr .update-product,
+.review-product {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    padding: 0;
+}
+
+.list_TypeProduct tr .delete-product span,
+.list_TypeProduct tr .update-product span {
+    border-radius: 50%;
+}
+
+.list_TypeProduct tr .delete-product:hover span {
+    background: rgb(223, 28, 28);
+    transition: 0.3s;
+}
+
+.list_TypeProduct tr .update-product:hover span {
+    /* background: #1890ff; */
+    background: var(--color-primary-background);
+    transition: 0.3s;
+}
+
+.list_TypeProduct tr .delete-product:hover span,
+.list_TypeProduct tr .update-product:hover span {
+    color: white;
+}
+
+.list_TypeProduct .pagination {
+    padding: 1rem 0;
+}
+.list_TypeProduct .pagination span {
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 0;
+}

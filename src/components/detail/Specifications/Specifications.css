@@ -1,0 +1,26 @@
+.technical-content {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.technical-content-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.technical-content li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.technical-content-item p:first-child {
+    width: 40%;
+}
+
+.technical-content-item div {
+    width: 50%;
+}

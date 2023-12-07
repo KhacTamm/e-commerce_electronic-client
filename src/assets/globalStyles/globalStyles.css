@@ -1,0 +1,109 @@
+:root {
+    --color-background: #f5f5fa;
+    --color-background_start: #5983fc;
+
+    /* --color-button-buy: rgb(70, 130, 180); */
+    --color-button-buy: #cd4e5c;
+    --color-button-discount: #cd4e5c;
+    --color-chat: #5f9ea0;
+    --color-btn: #cd4e5c;
+    --color-hover-btn: rgba(155, 178, 224,0.4);
+
+    --color-second-background: #cd4e5c;
+    /* --color-primary-background: #e65c4f; */
+    /* --color-primary-background: #5f9ea0; */
+    /* --color-primary-background: #185581;
+    --color-primary-line-background: #2d5c80; */
+    --color-primary-background: #5f9ea0;
+    --color-primary-line-background: #5f9ea0;
+    --color-line-background: #4682b4;
+
+    --color-hover-background: #feefdd;
+    --color-hover: #a2c5e8;
+
+    --admin-create: #4682b4;
+
+    --color-scrolltotop: #b67795;
+
+    --color-text-active: #ffd0d2;
+    --color-text-light: #555;
+
+    --color-white: #fff;
+    --color-ededed: #ededed;
+    --color-box-shadow: #0000001a;
+
+    /* //default layout */
+    --search-heigh: 38px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    /* // font-family: 'Odibee Sans', cursive; */
+    overflow-y: unset;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+/* ----------------------------App----------------------------- */
+.App {
+    background-color: var(--color-background);
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+a {
+    text-decoration: none;
+}

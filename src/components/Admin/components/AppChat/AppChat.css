@@ -1,0 +1,185 @@
+#appchat {
+    /* position: fixed; */
+    width: 80%;
+    position: fixed;
+}
+#appchat > span {
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.appchat {
+    display: flex;
+
+    background: white;
+    margin-left: 1rem;
+}
+.chatuser {
+    z-index: 1111;
+}
+.contact {
+    position: fixed;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: white;
+
+    padding: 12px;
+    width: 280px;
+    border: 1px solid #eee;
+}
+
+.contact-top h2 {
+    margin: 0;
+    display: flex;
+    padding: 1rem 0;
+    font-size: 25px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.contact-list {
+    overflow: hidden;
+}
+.contact-list-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    border-top: 1px solid #eee;
+}
+.contact-list-item-avarta {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #6b6b6b;
+    background: #eee;
+
+    border-radius: 50%;
+}
+.contact-list-item-content {
+    margin-left: 1rem;
+    width: 70%;
+}
+.contact-list-item-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+}
+.contact-list-item-lastmessage {
+
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    padding: 6px 0;
+
+    color: #6b6b6b;
+}
+
+.chat {
+    flex-grow: 1;
+    margin-left: 280px;
+}
+.ad-chatuser {
+    display: flex;
+
+    flex-direction: column;
+    border: 1px solid #eee;
+
+    height: 92vh;
+    bottom: 0;
+}
+.ad-chatuser-user {
+    text-align: left;
+    color: #6b6b6b;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0px 3px 4px -4px;
+}
+.ad-chatuser-user-name {
+    text-align: left;
+    font-weight: 700;
+    font-size: 17px;
+}
+.ad-chatuser-listmessage {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.ad-chatuser-listmessage-message {
+    display: flex;
+    padding: 1rem;
+    word-break: break-word;
+}
+.ad-chatuser-listmessage-message p {
+    padding: 8px 12px;
+    background: #e4e6eb;
+    max-width: 400px;
+    margin-top: 0.2rem;
+    border-radius: 20px;
+    text-align: left;
+}
+.ad-chatuser-listmessage-message.me {
+    /* margin: 12px 0; */
+    justify-content: flex-end;
+
+}
+.ad-chatuser-listmessage-message.me p {
+    /* background: #1890ff; */
+    background: var(--color-primary-background);
+    color: white;
+}
+
+.ad-chatuser-typemessage {
+    display: flex;
+    padding: 1rem 0.5rem;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 3px 4px -4px;
+}
+.ad-chatuser-typemessage input {
+    width: 100%;
+    padding: 0.3rem 1rem;
+    outline: none;
+    border: 1px solid #ddd;
+}
+.ad-chatuser-typemessage button {
+    /* background: #1890ff; */
+    background: var(--color-primary-background);
+    color: white;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+}
+
+.ad-chatuser-typemessage button svg {
+    font-size: 2.8rem;
+}
+
+.btn-send {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 2rem;
+
+}
+
+.btn-send svg {
+    font-size: 2.4rem;
+}
+
+.btn-send span {
+    padding: 5px 0;
+}

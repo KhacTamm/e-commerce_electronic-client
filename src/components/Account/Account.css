@@ -1,0 +1,108 @@
+.account_card {
+    display: flex;
+    flex-direction: column;
+
+    background: white;
+    margin: 24px;
+    padding: 1rem;
+    box-shadow: 0 0 12px var(--color-box-shadow);
+}
+
+from {
+    align-items: center;
+}
+
+.account_title {
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid var(--color-box-shadow);
+}
+
+.account_title span {
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+
+.account_items {
+    padding: 24px 0;
+    margin: auto;
+    width: 900px;
+}
+
+.account_item {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.account_lable {
+    width: 200px;
+    font-size: 1.6rem;
+    color: var(--color-text-light);
+}
+
+.account_items input,
+select {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    line-height: 3rem;
+
+    width: 600px;
+}
+
+.pass {
+    display: flex;
+    align-items: center;
+}
+
+.noneSelect {
+    -webkit-user-select: none;
+}
+
+.btn_account {
+    padding: 12px 24px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background-color: var(--color-primary-background);
+    width: 600px;
+    margin-left: 200px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.updatePass {
+    margin-left: 12px;
+    cursor: pointer;
+
+    height: 40px;
+    line-height: 40px;
+    font-weight: 500;
+
+    border-radius: 4px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0px 12px;
+    color: rgb(11, 116, 229);
+
+
+    border: 1px solid rgb(11, 116, 229);
+    background-color: rgb(255, 255, 255);
+
+    margin-bottom: 1rem;
+}
+
+.btn_account:hover {
+    opacity: 0.8;
+}
+
+.btn_account span {
+    color: #fff;
+    font-weight: 500;
+}
+
+.passChange {
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+}
